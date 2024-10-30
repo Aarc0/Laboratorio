@@ -1,3 +1,18 @@
+/*
+ * Grupo: Lab_A06
+ * Miembro1: Andrés Alejandro Rojas Cardona
+ * Miembro2: Jason Armijos Avendaño
+ * Miembro3: Alberto José Ramos Fernandez
+ * Miembro4: Carlos Ramos Cabañas
+ * 
+ * Fecha: 30/10/2024
+ * Descripción: El ejercicio consiste en que el usuario ingrese la longitud de distintos lados de un triangulo y los clasifique según
+ * 				que tipo de triangulo son, además, diferencia entre triangulos validos, los que dos de sus lados son mayores que el tercero
+ * 				y triangulos no validos, lo que no cumplen la condición anterior.  
+ * Versión: 1.0 
+ * 
+*/
+
 import java.util.Scanner;
 
 public class Clasificacion_de_triangulos {
