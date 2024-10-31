@@ -1,3 +1,18 @@
+/*
+ * Grupo: Lab_A06
+ * Miembro1: Andrés Alejandro Rojas Cardona
+ * Miembro2: Jason Armijos Avendaño
+ * Miembro3: Alberto José Ramos Fernandez
+ * Miembro4: Carlos Ramos Cabañas
+ * 
+ * Fecha: 30/10/2024
+ * Descripción: El ejercicio consiste en que el usuario ingrese los distintos valores de una ecuación de segundo grado, y luego
+ * 				el programa distinga entre si el discriminante es positivo, negativo o 0, estas distinciones haran que la ecuación
+ * 				tenga una respuesta, varias o respuestas imaginarias.  
+ * Versión: 1.0  
+*/
+
+
 import java.util.Scanner;
 
 public class Mejorado_de_ecuaciones 
@@ -15,15 +30,16 @@ public class Mejorado_de_ecuaciones
 		b = n.nextFloat();
 		System.out.print("Ingrese el valor del indice de \"c\": ");
 		c = n.nextFloat();
-		float discriminante = ((b*b)-4*a*c);
+		float discriminante = (((float)b*b)-(float)4*a*c);
+		
 		if(discriminante > 0)
 		{
-			float resultado1 = (-b+discriminante)/a*2;
-			float resultado2 = (-b-discriminante)/a*2;
+			float resultado1 = (float) (-b + Math.sqrt(discriminante))/(a*2);
+			float resultado2 = (float)(-b-Math.sqrt(discriminante))/(a*2);
 			System.out.println("El primer resultado es: "+resultado1);
 			System.out.println("El segundo resultado es: "+resultado2);
 		}
-		else if(discriminante == 0)
+		else if (discriminante == 0)
 		{
 			float resultado3 = -b/2*a;
 			System.out.println("El resultado es: "+ resultado3);
