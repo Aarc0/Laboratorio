@@ -16,7 +16,7 @@
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
-public class Mejorado_de_ecuaciones 
+public class Ecuaciones2G 
 {
 	public static void main(String[] args) 
 	{
