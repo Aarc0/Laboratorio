@@ -15,7 +15,7 @@
 
 import java.util.Scanner;
 
-public class Clasificacion_de_triangulos {
+public class Triangulos {
 
 	public static void main(String[] args) {
 		Scanner n = new Scanner(System.in);
