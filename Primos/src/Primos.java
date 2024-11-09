@@ -22,9 +22,14 @@ public class Primos
 		boolean a = true;
 		System.out.println("Ingrese un número");
 		int num = n.nextInt();
-		if(num==1)
+		if(num < 0)
 		{
-			System.out.println("El número 1 no es primo");
+			num = -num;
+			System.out.println("No hay numeros primos negativos, tu numero será convertido a positivo: " +num);
+		}
+		if(num==1 || num == 0)
+		{
+			System.out.println("El número " +num+ " no es primo");
 			n.close();
 			return;
 		}
