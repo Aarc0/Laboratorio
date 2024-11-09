@@ -1,3 +1,16 @@
+/*
+ * Grupo: Lab_A06
+ * Miembro1: Andrés Alejandro Rojas Cardona
+ * Miembro2: Jason Armijos Avendaño
+ * Miembro3: Alberto José Ramos Fernandez
+ * Miembro4: Carlos Ramos Cabañas
+ * 
+ * Fecha: 11/11/2024
+ * Descripción: El programa consiste en analizar el numero que ingresa el usuario y diferencia entre si es primo o no.   
+ * Versión: 1.0
+ * 
+ */
+
 import java.util.Scanner;
 
 public class Primos 

@@ -1,3 +1,17 @@
+/*
+ * Grupo: Lab_A06
+ * Miembro1: Andrés Alejandro Rojas Cardona
+ * Miembro2: Jason Armijos Avendaño
+ * Miembro3: Alberto José Ramos Fernandez
+ * Miembro4: Carlos Ramos Cabañas
+ * 
+ * Fecha: 11/11/2024
+ * Descripción: El programa consiste en analizar un rango de numeros (desde el numero 1 hasta el numero que ingrese el usuario) 
+ * e imprimir los numeros primos que haya entre 1 y el numero indicado por el usuario.  
+ * Versión: 1.0
+ * 
+ */
+
 import java.util.*;
 
 
@@ -19,22 +33,24 @@ public class CuentaPrimos
 				if(j%i==0)
 				{
 					a = false;
+					break;
 				}
+				
 			}
 			if (a == true)
 			{
-				System.out.println(j+" es primo");
+				System.out.print(j+"-");
 				p++;
 			}
 			else if (a == false)
 			{
-				System.out.println(j+" no es primo");
 				np++;
 				a = true;
 			}
 			
 		}
-		System.out.println("Hay "+p + " numeros primos" );
-		System.out.println("Hay "+np + " numeros que no son primos" );
+		System.out.println("\nHay "+p + " numeros primos" );
+		System.out.println("Hay "+np + " numeros que no son primos entre estos numeros" );
+		n.close();
 	}
 }
