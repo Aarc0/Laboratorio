@@ -33,6 +33,7 @@ public class Primos
 			if(num%i == 0)
 			{
 				a = false;
+				break;
 			}
 		}
 		if (a == true)
