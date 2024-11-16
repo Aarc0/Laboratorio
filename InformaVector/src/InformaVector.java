@@ -44,7 +44,7 @@ public class InformaVector
 		}
 		int mayor = 0;
 		int valor = 0;
-		for(int i = 0; i<prov2+1;i++)
+		for(int i = 0; i<aa.length;i++)
 		{
 			if(aa[i]>valor)
 			{
@@ -52,7 +52,7 @@ public class InformaVector
 				valor = aa[i];
 			}
 		}
-		System.out.println("\n-El número que más se repite es: "+mayor);
+		System.out.println("\n-El número que más se repite es: "+mayor+ " y se repite " + valor+" veces.");
 		n.close();
 	}
 }
