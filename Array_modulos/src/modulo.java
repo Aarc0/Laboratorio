@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class modulo 
 {
+	static Scanner n = new Scanner(System.in);
 	public static void main(String[]args)
 	{
-		Scanner n = new Scanner(System.in);
 		System.out.println("Ingrese cuantas matrices quiere crear");
 		int nm = n.nextInt();
 		//se crea una variable llamada "nm" que guarda el valor del número de matrices a realizar
@@ -22,11 +22,11 @@ public class modulo
 	}
 	public static int nmatriz(int N)
 	{
-		Scanner m = new Scanner(System.in);
+		
 		System.out.println("Por favor incerte el número de filas que contendrá la matriz: ");
-		int filas = m.nextInt();
+		int filas = n.nextInt();
 		System.out.println("Por favor incerte el número de columnas que contendrá la matriz: ");
-		int columnas = m.nextInt();
+		int columnas = n.nextInt();
 		//Aquí pido ingresar el número de filas y columnas que contendrá la matriz
 		
 		
@@ -47,11 +47,7 @@ public class modulo
 			{
 				array[i][j] = m.nextInt();
 			}
-		}
-		
-		
+		}	
 		return array(f, c);
 	}
-	
-
 }
