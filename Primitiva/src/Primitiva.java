@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class Primitiva 
 {
 	static Scanner n = new Scanner(System.in);
@@ -15,8 +14,11 @@ public class Primitiva
 		else if((di >= 2) && (di<=6)) System.out.println("\n-Usted puede realizar " + di + " apuestas.");
 		else
 		{
-		System.out.println("\n-La cantidad máxima de apuestas son 6");
-		return;
+			while(di>6)
+			{	
+			System.out.println("\n-La cantidad máxima de apuestas son 6, escoge un número menor porfa");
+			di = n.nextInt();
+			}
 		}
 		
 		//Hasta esta parte del codigo lo unico que hace es decir la cantidad de dinero que va a apostar el usuario
@@ -78,10 +80,32 @@ public class Primitiva
 		int [] boletog = ganador();
 		
 		//FALTA HACER UN MÓDULO QUE COMPARE LOS DOS BOLETOS Y DEVUELVA CUANTAS SE HAN ACERTADO
-		
+		int premio = comparador(boleto, boletog);
+		int reinte = reintegro(boleto, boletog, ca);
+		if(premio == 0)
+		{
+			System.out.println("Usted no acertó ningún número del boleto principal");
+		}
+		else
+		{
+			int x = 0;
+			for(int i = 0; i<premio; i++)
+			{
+				x = i;
+			}
+			x *= 10;
+			System.out.println("Usted ha ganado: "+x+"€, cada vez más lejos de la pobreza :D");
+		}
+		int total = premio+reinte;
+		if(total == 0)
+		{
+			System.out.println("Perdio dinero :(");
+		}
+		else
+		{
+			System.out.println("Ganó en total " + total+"€ :D");
+		}
 	}
-	
-	
 	//Este módulo se encarga de que no se repita ningún número dentro del boleto
 	public static int [] nonrep(int [] boleto)
 	{
@@ -154,9 +178,35 @@ public class Primitiva
 		}
 	}
 	//Este módulo se encarga de comparar los dos boletos y decir cuanto se ha ganado
-	public static int [] comparador(int[]apuesta, int[]ganador, int a)
+	public static int comparador(int[]apuesta, int[]ganador)
 	{
-		
+		int acertados = 0;
+		int i = 0;
+		do
+		{
+			if(apuesta[i] == ganador[i])
+			{
+				acertados +=1;
+				System.out.println("Acertó el número " +apuesta[i]);
+			}
+			i++;
+		}while(i<5);
+		return acertados;
+	}
+	//Aquí comparo el reintegro
+	public static int reintegro(int[] reintegro1, int[]reintegro2, int a)
+	{
+		int x = 0;
+		if(reintegro1[5] == reintegro2[5])
+		{
+			x = a;
+			System.out.println("Usted acertó el reintegro, " +reintegro1[5]+ ", se devolverá el dinero que hizo en su apuesta: ");
+		}
+		else
+		{
+			System.out.println("No acertó el reintegro");
+		}
+		return x;
 	}
 }
 
