@@ -1,14 +1,23 @@
+/* 
+* Grupo: Lab_A06 
+* Miembro 1: ANDRÉS ALEJANDRO ROJAS CARDONA 
+* Miembro 2: JASON ARMIJOS AVENDAÑO 
+* Miembro 3: CARLOS RAMOS CABAÑAS
+* Miembro 4: ALBERTO JOSÉ RAMOS FERNÁNDEZ
+* Fecha: 14/11/2024
+* Descripción: El programa ingresa el número de primos que diga el 
+* usuario dentro de una matriz del mismo tamaño
+* Versión: 1.0 
+*/
 import java.util.Scanner;
 
 public class VECTORPRIMOS 
 {
-
 	public static void main(String[] args) 
 	{
 		Scanner n = new Scanner(System.in);
 		System.out.print("Ingrese el número de primos que quiere almacenar: ");
-		//int T = n.nextInt();
-		int T = 10;
+		int T = n.nextInt();
 		boolean b = true;
 		int [] a = new int[T];
 		int j = 1;
@@ -42,6 +51,6 @@ public class VECTORPRIMOS
 			j++;
 			//Esto es simplemente un contador 
 		}while(a[T-1] == 0);
+		n.close();
 	}
-
 }
