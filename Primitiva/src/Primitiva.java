@@ -25,6 +25,11 @@ public class Primitiva
 		System.out.print("\n-Ingrese el número de apuestas que desea realizar: ");
 		int ca = n.nextInt();
 		
+		if(ca == 0)
+		{
+			System.out.println("\nPa que viene si no quiere jugar >:(");
+			return;
+		}
 		//Aquí ingresa el número de apuestas que va a realizar
 		while(ca > di)
 		{
@@ -79,7 +84,6 @@ public class Primitiva
 		
 		int [] boletog = ganador();
 		
-		//FALTA HACER UN MÓDULO QUE COMPARE LOS DOS BOLETOS Y DEVUELVA CUANTAS SE HAN ACERTADO
 		int premio = comparador(boleto, boletog);
 		int reinte = reintegro(boleto, boletog, ca);
 		if(premio == 0)
@@ -140,12 +144,12 @@ public class Primitiva
 	//Este modulo se encarga de crear el boleto ganador
 	public static int [] ganador()
 	{
-		int [] bolpre = new int [6];
+		int [] bolpre = new int [7];
 		for(int i = 0; i<5;i++)
 		{
 			bolpre[i] =(int) (1+Math.random()*49);
 		}
-		bolpre[5] = (int)(Math.random()*9);
+		bolpre[6] = (int)(Math.random()*9);
 		
 		bolpre = nonrepg(bolpre);
 		
@@ -190,14 +194,15 @@ public class Primitiva
 				System.out.println("Acertó el número " +apuesta[i]);
 			}
 			i++;
-		}while(i<5);
+		}while(i<apuesta.length-1);
 		return acertados;
 	}
 	//Aquí comparo el reintegro
 	public static int reintegro(int[] reintegro1, int[]reintegro2, int a)
 	{
 		int x = 0;
-		if(reintegro1[5] == reintegro2[5])
+		
+		if(reintegro1[reintegro1.length-1] == reintegro2[6])
 		{
 			x = a;
 			System.out.println("Usted acertó el reintegro, " +reintegro1[5]+ ", se devolverá el dinero que hizo en su apuesta: ");
@@ -209,5 +214,3 @@ public class Primitiva
 		return x;
 	}
 }
-
-
