@@ -8,27 +8,37 @@ public class Primitiva
 		
 		System.out.print("-Ingrese la cantidad de dinero que desea apostar: ");
 		int di = n.nextInt();
+		//La cantidad de dinero tiene que estar dentro de los límites del numero maximo de apuestas
 		
-		if(di < 1) System.out.println("\n-Lo sentimos, el mínimo para apostar es 1€");
+		if(di < 1) 
+		{	
+			System.out.println("\n-Lo sentimos, el mínimo para apostar es 1€, ingrese un nuevo numero");
+			di = n.nextInt();
+		}
 		else if(di == 1) System.out.println("\n-Usted puede realizar una apuesta");
-		else if((di >= 2) && (di<=6)) System.out.println("\n-Usted puede realizar " + di + " apuestas.");
+		else if((di >= 2) && (di<=8)) System.out.println("\n-Usted puede realizar " + di + " apuestas.");
 		else
 		{
-			while(di>6)
+			while(di>8)
 			{	
-			System.out.println("\n-La cantidad máxima de apuestas son 6, escoge un número menor porfa");
+			System.out.println("\n-La cantidad máxima de apuestas son 8, escoge un número menor porfa");
 			di = n.nextInt();
 			}
 		}
 		
 		//Hasta esta parte del codigo lo unico que hace es decir la cantidad de dinero que va a apostar el usuario
+		//El dinero se relaciona con la cantidad de apuestas
+		
 		System.out.print("\n-Ingrese el número de apuestas que desea realizar: ");
 		int ca = n.nextInt();
 		
 		if(ca == 0)
 		{
-			System.out.println("\nPa que viene si no quiere jugar >:(");
-			return;
+			while(ca<=0)
+			{
+			System.out.print("Ingrese un número mayor: ");
+			ca = n.nextInt();
+			}
 		}
 		//Aquí ingresa el número de apuestas que va a realizar
 		while(ca > di)
@@ -41,102 +51,106 @@ public class Primitiva
 		System.out.println("\n-El dinero sobrante es: " + resto +"€");
 		//Le dice a la persona cuanto dinero le queda.
 
-		int [] boleto = new int[ca+1];
-		//se le añade uno para contar el reintegro
 		
+		//Esta array guarda el número de casillas que haya indicado el usuario
+		int [][] boleto = new int[ca][];
+
 		for(int i = 0; i<ca;i++)
 		{
-			System.out.print("-Escoja el número en la casilla "+ (i+1)+ " : ");
+			System.out.println("Cuantos números quiere ingresar en la casilla "+(i+1));
 			int num = n.nextInt();
-			if(num < 1 || num > 49)
+			if(num >6)
 			{
-				System.out.println("Tu número tiene que estár entre 1 y 49, escoge un nuevo numero");
-				num = n.nextInt();
+				while(num>6)
+				{	
+					System.out.println("El número máximo de números por casilla es 6");
+					num = n.nextInt();
+				}
 			}
-			boleto[i] = num;
+			if(num<1)
+			{
+				while(num<1)
+				{	
+					System.out.println("El número mínimo de números por casilla es 1");
+					num = n.nextInt();
+				}
+			}
+			boleto[i] = new int[num];
+			for(int z = 0; z<num;z++)
+			{
+				boleto[i][z] =(int)(1+Math.random()*49);
+			}
 		}
-		//Con esta parte del codigo tengo generado un número escogido por el usuario para cada casilla, es decir el boleto hecho.
-		
+		boleto = nonrep(boleto);
+		for(int i = 0;i<ca;i++)
+		{
+			System.out.print("\n-La casilla "+(i+1)+" tiene los números: " );
+			for(int z = 0;z<boleto[i].length;z++)
+			{
+				System.out.print(boleto[i][z]);
+				if(boleto[i][z] == 0)
+				{
+					break;
+				}
+				if(z<boleto[i].length-1)
+				{
+					System.out.print("-");
+				}
+			}
+		}
+		//Con esta parte del codigo tengo hechos los boletos que quiera el usuario		
 		
 		//Aquí creo el reintegro del boleto
-		boleto[ca] = reint;
-		//Le digo al codigo que en la última posición del vector ponga el valor del reintegro, para acortar
+		int r =(int)(Math.random()*9);
 		
 		
-		boleto = nonrep(boleto);
-		
-		System.out.println("\n-Los números escogidos son: ");
-		for(int i = 0; i<ca+1; i++)
-		{
-			System.out.print(boleto[i]);
-			if(i==ca-1)
-			{
-				System.out.print("\n-El reintegro es: ");
-				System.out.println(boleto[ca]);
-				break;
-			}
-			if(i<ca)
-			{
-				System.out.print("-");
-			}
-		}
-		//En esta parte se imprime el boleto para que el usuario lo vea.
 		
 		int [] boletog = ganador();
 		
 		int premio = comparador(boleto, boletog);
-		int reinte = reintegro(boleto, boletog, ca);
+		
+		int reinte = reintegro(r, boletog, ca);
 		if(premio == 0)
 		{
-			System.out.println("Usted no acertó ningún número del boleto principal");
+			System.out.print("\n-Usted no acertó ningún número del boleto principal");
 		}
 		else
 		{
-			int x = 0;
-			for(int i = 0; i<premio; i++)
-			{
-				x = i;
-			}
-			x *= 10;
-			System.out.println("Usted ha ganado: "+x+"€, cada vez más lejos de la pobreza :D");
+			premio *= 10;
+			System.out.print("\n-Usted ha ganado: "+premio+"€, con aciertos en las casillas cada vez más lejos de la pobreza :D");
 		}
 		int total = premio+reinte;
 		if(total == 0)
 		{
-			System.out.println("Perdio dinero :(");
+			System.out.print("\n-Perdio dinero :(");
 		}
 		else
 		{
-			System.out.println("Ganó en total " + total+"€ :D");
+			System.out.print("\n-Ganó en total " + total+"€ :D");
 		}
 	}
 	//Este módulo se encarga de que no se repita ningún número dentro del boleto
-	public static int [] nonrep(int [] boleto)
+	public static int [][] nonrep(int [][] boleto)
 	{
-		int [] repe = new int[50]; 
-		//Esta matriz la uso para contar si hay valores repetidos
-		
-		for(int i = 0; i<boleto.length-1;i++)
-			//Se le resta uno a la longitud pq no quiero que cuente el reintegro
+		int [] rep = new int[50];
+		for(int i = 0; i<boleto.length;i++)
 		{
-			repe[boleto[i]] += 1;
-			
-			
-			if(repe[boleto[i]] == 2)
+			for(int x = 0; x<boleto[i].length;x++)
 			{
-				System.out.print("\n-El número " +boleto[i]+ " está repetido en la casilla " 	+ (i+1) + " por favor cambielo por uno que no haya escogido anteriormente: ");
-				boleto[i] = n.nextInt();
-				if(boleto[i] < 1 || boleto[i]> 49)
+				rep[boleto[i][x]] += 1;
+				if(rep[boleto[i][x]] == 2)
 				{
-					System.out.println("Tu número tiene que estár entre 1 y 49, escoge un nuevo numero");
-					boleto[i] = n.nextInt();
+					boleto[i][x] = (int)(1+Math.random()*49);
+					for(int ii = 0;ii<boleto.length;ii++)
+					{
+						for(int xx = 0; xx<boleto[ii].length;xx++)
+						{
+							rep[boleto[ii][xx]] = 0;
+						}
+					}
+					x = -1;
+					i = 0;
 				}
-				for(int x = 0; x<boleto.length-1; x++)
-				{
-					repe[boleto[x]] = 0;
-					//Esto es para resetear el valor de todos y volver a examinar de que no haya repetidos
-				}
-			 i = -1;
 			}
 		}
 		return boleto;
@@ -145,7 +159,7 @@ public class Primitiva
 	public static int [] ganador()
 	{
 		int [] bolpre = new int [7];
-		for(int i = 0; i<5;i++)
+		for(int i = 0; i<6;i++)
 		{
 			bolpre[i] =(int) (1+Math.random()*49);
 		}
@@ -182,34 +196,37 @@ public class Primitiva
 		}
 	}
 	//Este módulo se encarga de comparar los dos boletos y decir cuanto se ha ganado
-	public static int comparador(int[]apuesta, int[]ganador)
+	public static int comparador(int[][]apuesta, int[]ganador)
 	{
 		int acertados = 0;
-		int i = 0;
-		do
+		for(int i = 0; i<apuesta.length;i++)
 		{
-			if(apuesta[i] == ganador[i])
+			for(int x = 0; x<apuesta[i].length;x++)
 			{
-				acertados +=1;
-				System.out.println("Acertó el número " +apuesta[i]);
+				for(int z = 0;z<ganador.length-1;z++)
+				{
+					if(apuesta[i][x] == ganador[z])
+					{
+						acertados += 1;
+					}
+				}
 			}
-			i++;
-		}while(i<apuesta.length-1);
+		}
 		return acertados;
 	}
 	//Aquí comparo el reintegro
-	public static int reintegro(int[] reintegro1, int[]reintegro2, int a)
+	public static int reintegro(int r, int[]reintegro2, int a)
 	{
 		int x = 0;
 		
-		if(reintegro1[reintegro1.length-1] == reintegro2[6])
+		if(r == reintegro2[6])
 		{
 			x = a;
-			System.out.println("Usted acertó el reintegro, " +reintegro1[5]+ ", se devolverá el dinero que hizo en su apuesta: ");
+			System.out.print("\n-Usted acertó el reintegro, " +r+ ", se devolverá el dinero que hizo en su apuesta: ");
 		}
 		else
 		{
-			System.out.println("No acertó el reintegro");
+			System.out.print("\n-No acertó el reintegro");
 		}
 		return x;
 	}
