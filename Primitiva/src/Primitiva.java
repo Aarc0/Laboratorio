@@ -1,17 +1,26 @@
+/*
+ * Grupo: Lab_A06
+ * Miembro1: Andrés Alejandro Rojas Cardona
+ * Miembro2: Jason Armijos Avendaño
+ * Miembro3: Alberto José Ramos Fernandez
+ * Miembro4: Carlos Ramos Cabañas
+ * 
+ * Fecha: 18/10/2024
+ * Descripción: El programa consiste en recrear el juego de la primitiva, el usuario escoge el dinero que quiere ingresar y
+ * 				luego escoge el numero de apuestas que desea realizar.  
+ * Versión: 1.0
+ * 
+ */
+
 import java.util.Scanner;
 public class Primitiva 
 {
 	static Scanner n = new Scanner(System.in);
 	public static void main(String[] args) 
-	{
-		int reint = (int)(Math.random()*9);
-		
+	{		
 		System.out.print("-Ingrese la cantidad de dinero que desea apostar: ");
-		int di = n.nextInt();
-		
-		
-		//El dinero luego se relaciona con la cantidad de apuestas
-		
+		int di = n.nextInt();		
+		//El dinero luego se relaciona con la cantidad de apuestas		
 		System.out.print("\n-Ingrese el número de apuestas que desea realizar: ");
 		int ca = n.nextInt();
 		//Aquí ingresa el número de apuestas que va a realizar
@@ -28,16 +37,12 @@ public class Primitiva
 		{
 			System.out.println("\n-Usted puede realizar un máximo de " + di + " apuestas, ingrese un nuevo número: ");
 			ca = n.nextInt();
-		}
-		
+		}		
 		int resto = di-ca;
 		System.out.println("\n-El dinero sobrante es: " + resto +"€");
-		//Le dice a la persona cuanto dinero le queda.
-
-		
+		//Le dice a la persona cuanto dinero le queda.	
 		//Esta array guarda el número de casillas que haya indicado el usuario
 		int [][] boleto = new int[ca][5];
-
 		for(int i = 0; i<ca;i++)
 		{
 			for(int z = 0; z<5;z++)
@@ -62,13 +67,9 @@ public class Primitiva
 				}
 			}
 		}
-		//Con esta parte del codigo tengo hechos los boletos que quiera el usuario		
-		
+		//Con esta parte del codigo tengo hechos los boletos que quiera el usuario			
 		//Aquí creo el reintegro del boleto
 		int r =(int)(Math.random()*9);
-		
-		
-		
 		int [] boletog = ganador();
 		int reinte = reintegro(r, boletog, ca);
 		
@@ -77,10 +78,9 @@ public class Primitiva
 			System.out.println("\n-No acertó el reintegro");
 		}
 		else if(reinte == ca)
-		{
+		{		
 			System.out.println("\n-Usted acertó el reintegro, se le devolverán " + reinte+"€");
 		}
-		
 		int premio = 0;
 		int tot = 0;
 		for(int i = 0; i<boleto.length;i++)
@@ -92,7 +92,7 @@ public class Primitiva
 			}
 			if(tot >= 1)
 			{
-				aciertos(tot, i);
+				aciertos(tot, i, reinte);
 				tot = 0;
 			}
 			else if(tot < 1)
@@ -188,12 +188,11 @@ public class Primitiva
 		if(r == reintegro2[6])
 		{
 			x = a;	
-			System.out.print("\n-Acertó el reintegro");
 		}
 		return x;
 	}
 	//En este metodo creo las opciones de cuanto dinero gana el usuario dependiendo de cuantos numeros haya acertado
-	public static int aciertos(int a, int po)
+	public static int aciertos(int a, int po, int r)
 	{
 		if(a<3 )
 		{
@@ -207,11 +206,11 @@ public class Primitiva
 		{
 			System.out.println("\n-Acertó " +a+ " numeros en la casilla " +(po+1)+ " el premio es de 100€");
 		}
-		else if(a == 6)
+		else if(a == 6 && r > 0)
 		{
 			System.out.println("\n-Ganó el premio máximo en la casilla "+(po+1));
 		}
-		else if(a == 6)
+		else if(a == 6 && r == 0)
 		{
 			System.out.println("\n-Ganó el segundo premio en la casilla "+(po+1));
 		}
