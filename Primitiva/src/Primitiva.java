@@ -1,82 +1,50 @@
+/*
+ * Grupo: Lab_A06
+ * Miembro1: Andrés Alejandro Rojas Cardona
+ * Miembro2: Jason Armijos Avendaño
+ * Miembro3: Alberto José Ramos Fernandez
+ * Miembro4: Carlos Ramos Cabañas
+ * 
+ * Fecha: 18/11/2024
+ * Descripción: El programa consiste en recrear el juego de la primitiva, el usuario escoge el dinero que quiere ingresar y
+ * 				luego escoge el numero de apuestas que desea realizar.  
+ * Versión: 1.0
+ * 
+ */
 import java.util.Scanner;
 public class Primitiva 
 {
 	static Scanner n = new Scanner(System.in);
 	public static void main(String[] args) 
-	{
-		int reint = (int)(Math.random()*9);
-		
+	{		
 		System.out.print("-Ingrese la cantidad de dinero que desea apostar: ");
-		int di = n.nextInt();
-		//La cantidad de dinero tiene que estar dentro de los límites del numero maximo de apuestas
-		
-		if(di < 1) 
-		{	
-			System.out.println("\n-Lo sentimos, el mínimo para apostar es 1€, ingrese un nuevo numero");
-			di = n.nextInt();
-		}
-		else if(di == 1) System.out.println("\n-Usted puede realizar una apuesta");
-		else if((di >= 2) && (di<=8)) System.out.println("\n-Usted puede realizar " + di + " apuestas.");
-		else
-		{
-			while(di>8)
-			{	
-			System.out.println("\n-La cantidad máxima de apuestas son 8, escoge un número menor porfa");
-			di = n.nextInt();
-			}
-		}
-		
-		//Hasta esta parte del codigo lo unico que hace es decir la cantidad de dinero que va a apostar el usuario
-		//El dinero se relaciona con la cantidad de apuestas
-		
+		int di = n.nextInt();		
+		//El dinero luego se relaciona con la cantidad de apuestas		
 		System.out.print("\n-Ingrese el número de apuestas que desea realizar: ");
 		int ca = n.nextInt();
-		
+		//Aquí ingresa el número de apuestas que va a realizar
+
 		if(ca == 0)
 		{
 			while(ca<=0)
 			{
-			System.out.print("Ingrese un número mayor: ");
+			System.out.print("El numero mínimo de apuestas es 1, ingrese un numero mayor: ");
 			ca = n.nextInt();
 			}
 		}
-		//Aquí ingresa el número de apuestas que va a realizar
 		while(ca > di)
 		{
-			System.out.println("\n-Usted puede realizar solo " + di + " apuestas, ingrese un nuevo número: ");
+			System.out.println("\n-Usted puede realizar un máximo de " + di + " apuestas, ingrese un nuevo número: ");
 			ca = n.nextInt();
-		}
-		
+		}		
 		int resto = di-ca;
 		System.out.println("\n-El dinero sobrante es: " + resto +"€");
-		//Le dice a la persona cuanto dinero le queda.
-
-		
+		//Le dice a la persona cuanto dinero le queda.	
 		//Esta array guarda el número de casillas que haya indicado el usuario
-		int [][] boleto = new int[ca][];
-
+		int [][] boleto = new int[ca][5];
 		for(int i = 0; i<ca;i++)
 		{
-			System.out.println("Cuantos números quiere ingresar en la casilla "+(i+1));
-			int num = n.nextInt();
-			if(num >6)
-			{
-				while(num>6)
-				{	
-					System.out.println("El número máximo de números por casilla es 6");
-					num = n.nextInt();
-				}
-			}
-			if(num<1)
-			{
-				while(num<1)
-				{	
-					System.out.println("El número mínimo de números por casilla es 1");
-					num = n.nextInt();
-				}
-			}
-			boleto[i] = new int[num];
-			for(int z = 0; z<num;z++)
+			for(int z = 0; z<5;z++)
 			{
 				boleto[i][z] =(int)(1+Math.random()*49);
 			}
@@ -98,36 +66,40 @@ public class Primitiva
 				}
 			}
 		}
-		//Con esta parte del codigo tengo hechos los boletos que quiera el usuario		
-		
+		//Con esta parte del codigo tengo hechos los boletos que quiera el usuario			
 		//Aquí creo el reintegro del boleto
 		int r =(int)(Math.random()*9);
-		
-		
-		
 		int [] boletog = ganador();
-		
-		int premio = comparador(boleto, boletog);
-		
 		int reinte = reintegro(r, boletog, ca);
-		if(premio == 0)
+		
+		if(reinte == 0)
 		{
-			System.out.print("\n-Usted no acertó ningún número del boleto principal");
+			System.out.println("\n-No acertó el reintegro");
 		}
-		else
+		else if(reinte == ca)
+		{		
+			System.out.println("\n-Usted acertó el reintegro, se le devolverán " + reinte+"€");
+		}
+		int premio = 0;
+		int tot = 0;
+		for(int i = 0; i<boleto.length;i++)
 		{
-			premio *= 10;
-			System.out.print("\n-Usted ha ganado: "+premio+"€, con aciertos en las casillas cada vez más lejos de la pobreza :D");
+			for(int x = 0; x<boleto[i].length;x++)
+			{
+				premio = comparador(boleto[i][x], boletog);
+				tot += premio;
+			}
+			if(tot >= 1)
+			{
+				aciertos(tot, i, reinte);
+				tot = 0;
+			}
+			else if(tot < 1)
+			{
+				System.out.println("\n-No tuvo aciertos en la casilla "+(i+1));
+			}
 		}
-		int total = premio+reinte;
-		if(total == 0)
-		{
-			System.out.print("\n-Perdio dinero :(");
-		}
-		else
-		{
-			System.out.print("\n-Ganó en total " + total+"€ :D");
-		}
+		n.close();
 	}
 	//Este módulo se encarga de que no se repita ningún número dentro del boleto
 	public static int [][] nonrep(int [][] boleto)
@@ -141,15 +113,15 @@ public class Primitiva
 				if(rep[boleto[i][x]] == 2)
 				{
 					boleto[i][x] = (int)(1+Math.random()*49);
+					
 					for(int ii = 0;ii<boleto.length;ii++)
 					{
 						for(int xx = 0; xx<boleto[ii].length;xx++)
 						{
 							rep[boleto[ii][xx]] = 0;
 						}
-					}
+					}																
 					x = -1;
-					i = 0;
 				}
 			}
 		}
@@ -196,20 +168,14 @@ public class Primitiva
 		}
 	}
 	//Este módulo se encarga de comparar los dos boletos y decir cuanto se ha ganado
-	public static int comparador(int[][]apuesta, int[]ganador)
+	public static int comparador(int apuesta, int[]ganador)
 	{
 		int acertados = 0;
-		for(int i = 0; i<apuesta.length;i++)
+		for(int i = 0; i<ganador.length-1;i++)
 		{
-			for(int x = 0; x<apuesta[i].length;x++)
+			if(apuesta == ganador[i])
 			{
-				for(int z = 0;z<ganador.length-1;z++)
-				{
-					if(apuesta[i][x] == ganador[z])
-					{
-						acertados += 1;
-					}
-				}
+				acertados += 1;
 			}
 		}
 		return acertados;
@@ -218,16 +184,35 @@ public class Primitiva
 	public static int reintegro(int r, int[]reintegro2, int a)
 	{
 		int x = 0;
-		
 		if(r == reintegro2[6])
 		{
-			x = a;
-			System.out.print("\n-Usted acertó el reintegro, " +r+ ", se devolverá el dinero que hizo en su apuesta: ");
-		}
-		else
-		{
-			System.out.print("\n-No acertó el reintegro");
+			x = a;	
 		}
 		return x;
+	}
+	//En este metodo creo las opciones de cuanto dinero gana el usuario dependiendo de cuantos numeros haya acertado
+	public static int aciertos(int a, int po, int r)
+	{
+		if(a<3 )
+		{
+			System.out.println("\n-Tuvo menos de 3 aciertos en la casilla "+(po+1));
+		}
+		else if (a == 3)
+		{
+			System.out.println("\n-Acertó 3 numeros en la casilla "+(po+1)+ " el premio es de 50€");
+		}
+		else if(a > 3 && a <6)
+		{
+			System.out.println("\n-Acertó " +a+ " numeros en la casilla " +(po+1)+ " el premio es de 100€");
+		}
+		else if(a == 6 && r > 0)
+		{
+			System.out.println("\n-Ganó el premio máximo en la casilla "+(po+1));
+		}
+		else if(a == 6 && r == 0)
+		{
+			System.out.println("\n-Ganó el segundo premio en la casilla "+(po+1));
+		}
+		return a;
 	}
 }
