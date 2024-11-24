@@ -5,13 +5,12 @@
  * Miembro3: Alberto José Ramos Fernandez
  * Miembro4: Carlos Ramos Cabañas
  * 
- * Fecha: 18/10/2024
+ * Fecha: 18/11/2024
  * Descripción: El programa consiste en recrear el juego de la primitiva, el usuario escoge el dinero que quiere ingresar y
  * 				luego escoge el numero de apuestas que desea realizar.  
  * Versión: 1.0
  * 
  */
-
 import java.util.Scanner;
 public class Primitiva 
 {
