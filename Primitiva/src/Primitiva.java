@@ -35,7 +35,7 @@ public class Primitiva
 		{
 			System.out.println("\n-Usted puede realizar un máximo de " + di + " apuestas, ingrese un nuevo número: ");
 			ca = n.nextInt();
-		}		
+		}
 		int resto = di-ca;
 		System.out.println("\n-El dinero sobrante es: " + resto +"€");
 		//Le dice a la persona cuanto dinero le queda.	
