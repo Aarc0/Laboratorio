@@ -9,7 +9,6 @@
  * Descripción: El programa consiste en recrear el juego de la primitiva, el usuario escoge el dinero que quiere ingresar y
  * 				luego escoge el numero de apuestas que desea realizar.  
  * Versión: 1.0
- * 
  */
 import java.util.Scanner;
 public class Primitiva 
