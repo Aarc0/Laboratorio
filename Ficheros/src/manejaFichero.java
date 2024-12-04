@@ -55,6 +55,8 @@ public class manejaFichero
 
 		
 		int z = 0;
+		int guardar = 0;
+		int index = 0;
 		String[] nom = new String[i];
 		String[] num = new String[i];
 		while(leer.hasNext())
@@ -68,12 +70,17 @@ public class manejaFichero
 			nom[z] = separado1[0];
 			num[z] = separado1[1];
 			System.out.println(">"+nom[z]+" = "+num[z]);
-			z++;
 			//Aqui lo que hago es pasar del fichero a la memoria para manejar el array
-			
+
+			int punto = Integer.valueOf(separado1[1]);
+			if(punto > guardar)
+			{
+				guardar = punto;
+				index = z;
+			}
+			z++;
 		}
-		
-		
+		System.out.println("El alias " + nom[index]+" tiene la puntuación más alta con "+num[index]+" puntos" );
 		
 		n.close();leer.close();
 	}
