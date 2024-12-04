@@ -1,3 +1,17 @@
+/*
+ * Grupo: Lab_A06
+ * Miembro1: Andrés Alejandro Rojas Cardona
+ * Miembro2: Jason Armijos Avendaño
+ * Miembro3: Alberto José Ramos Fernandez
+ * Miembro4: Carlos Ramos Cabañas
+ * 
+ * Fecha: 02/12/2024
+ * Descripción: El programa le pide al usuario que ingrese un alias de usuario, a este alias luego se le asigna un valor,
+ * 				el proyecto consistia en filtrar estos alias por el que tenía mayor puntuación, luego se indica cual es el alias
+ * 				con el mayor valor y lo muestra en pantalla.
+ * Versión: 1.0
+ */
+
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
