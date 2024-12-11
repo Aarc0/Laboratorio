@@ -33,7 +33,6 @@ public class Ecuaciones2G
 		System.out.print("Ingrese el valor del indice de \"c\": ");
 		c = n.nextFloat();
 		float discriminante = (((float)b*b)-(float)4*a*c);
-		
 		if(discriminante > 0)
 		{
 			float resultado1 = (float) (-b + Math.sqrt(discriminante))/(a*2);
@@ -51,19 +50,16 @@ public class Ecuaciones2G
 			float csigno = -discriminante;
 			float raiz = (float)Math.sqrt(csigno);
 			String im = "i";
-			float B = (-b/2*a);
-			float R = (raiz/2*a);
+			float B = (-b/(2*a));
+			float R = (raiz/(2*a));
 			char p = '+';
 			char ne = '-';
 			
 			System.out.print("El primer resultado de la ecuación es: " + df.format(B));
 			System.out.println("" + p + df.format(R) + im);
 			System.out.print("El segundo resultado de la ecuación es: " + df.format(B));
-			System.out.print("" + ne + df.format(R) + im);
-			
+			System.out.print("" + ne + df.format(R) + im);	
 		}
-		
-		
 	}
 
 }
