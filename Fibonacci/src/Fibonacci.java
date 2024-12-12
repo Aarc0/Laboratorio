@@ -12,19 +12,31 @@ public class Fibonacci
 			System.err.println("Ingrese un número mayor que 0");
 			num = n.nextInt();
 		}
-		
-		//System.out.println(fibonacci(num-1)+fibonacci(num-2));
-	}
-	/*public static int fibonacci(int m)
-							//4, yo quiero saber 3 y 2
-	{	
-		if(m<=1)
+		int i = 0;
+		int z = 0, y = 0;
+		while(i<num-1)
 		{
-			return m;
+			z = fibonacci(i);
+			i++;
 		}
-		
-		 
-		
-		
-	}*/
+		i=0;
+		while(i<num-2)
+		{
+			y = fibonacci(i);
+			i++;
+		}
+		System.out.println("este es z: "+ z);
+		System.out.println("este es y: "+ y);
+		int x = z + y;
+		System.out.printf("%d", x);
+		n.close();
+	}
+	public static int fibonacci(int n)
+	{
+		if(n<=1)
+		{
+			return n;
+		}
+		return fibonacci(n-1)+fibonacci(n-2);
+	}
 }
