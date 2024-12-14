@@ -1,3 +1,17 @@
+/*
+ * Grupo: Lab_A06
+ * Miembro1: Andrés Alejandro Rojas Cardona
+ * Miembro2: Jason Armijos Avendaño
+ * Miembro3: Alberto José Ramos Fernandez
+ * Miembro4: Carlos Ramos Cabañas
+ * 
+ * Fecha: 9/12/2024
+ * Descripción:	Este programa calcula el minimo común divisor de dos numeros que el usuario ingrese. 
+ * 
+ * Versión: 1.0
+ * 
+ */
+
 import java.util.*;
 
 public class Comun_divisor 
