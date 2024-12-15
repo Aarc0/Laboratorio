@@ -55,10 +55,6 @@ public class Primitiva
 			for(int z = 0;z<boleto[i].length;z++)
 			{
 				System.out.print(boleto[i][z]);
-				if(boleto[i][z] == 0)
-				{
-					break;
-				}
 				if(z<boleto[i].length-1)
 				{
 					System.out.print("-");
@@ -129,12 +125,12 @@ public class Primitiva
 	//Este modulo se encarga de crear el boleto ganador
 	public static int [] ganador()
 	{
-		int [] bolpre = new int [7];
+		int [] bolpre = new int [6];
 		for(int i = 0; i<6;i++)
 		{
 			bolpre[i] =(int) (1+Math.random()*49);
 		}
-		bolpre[6] = (int)(Math.random()*9);
+		bolpre[5] = (int)(Math.random()*9);
 		
 		bolpre = nonrepg(bolpre);
 		
@@ -183,7 +179,7 @@ public class Primitiva
 	public static int reintegro(int r, int[]reintegro2, int a)
 	{
 		int x = 0;
-		if(r == reintegro2[6])
+		if(r == reintegro2[5])
 		{
 			x = a;	
 		}

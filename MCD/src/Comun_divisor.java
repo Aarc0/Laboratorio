@@ -19,7 +19,7 @@ public class Comun_divisor
 	public static void main(String[] args) 
 	{
 		Scanner scan = new Scanner(System.in);
-		System.out.println("Ingrese de cuales numeros desea calcular el mínimo común divisor");
+		System.out.println("Ingrese de cuales numeros desea calcular el máximo común divisor");
 		int N = scan.nextInt();
 		int M = scan.nextInt();
 		while(M<=N)

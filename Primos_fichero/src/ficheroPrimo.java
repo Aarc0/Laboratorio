@@ -45,12 +45,8 @@ public class ficheroPrimo
 		}while(i);
 		salida.close();
 		
-
-		i = true;
-		
 		
 		String primos = "primos.dat";
-		File prim = new File(primos);
 		
 		PrintWriter salida2 = new PrintWriter(new FileWriter(primos));
 		
@@ -65,13 +61,7 @@ public class ficheroPrimo
 			if(b)
 			{
 				salida2.println(pri);
-
 			}
-			else
-			{
-				i = true;
-			}
-			
 		}
 		salida2.close();
 		n.close();

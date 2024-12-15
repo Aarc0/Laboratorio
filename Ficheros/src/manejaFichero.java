@@ -31,7 +31,7 @@ public class manejaFichero
 		//Declaro el nombre del fichero
 		//Se define que tipo de archivo va a tener la variable "fichero" que va a ser el que tenga "punto"
 		
-		
+	
 		Scanner leer = new Scanner(fichero);
 		//Este Scanner servirá para leer el fichero
 		

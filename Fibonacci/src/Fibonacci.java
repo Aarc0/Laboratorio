@@ -1,4 +1,4 @@
-/*
+ /*
  * Grupo: Lab_A06
  * Miembro1: Andrés Alejandro Rojas Cardona
  * Miembro2: Jason Armijos Avendaño
