@@ -27,7 +27,7 @@ public class Fibonacci
 			System.err.println("Ingrese un número mayor que 0");
 			num = n.nextInt();
 		}
-		int i = 0;
+		/*int i = 0;
 		int z = 0, y = 0;
 		while(i<num-1)
 		{
@@ -42,8 +42,11 @@ public class Fibonacci
 		}
 		System.out.println("este es z: "+ z);
 		System.out.println("este es y: "+ y);
-		int x = z + y;
-		System.out.printf("%d", x);
+
+		int x = z + y; */
+		
+		System.out.printf("%d", fibonacci(num));
+		System.out.printf("\nla suma es: %d", suma(num));
 		n.close();
 	}
 	public static int fibonacci(int n)
@@ -53,5 +56,13 @@ public class Fibonacci
 			return n;
 		}
 		return fibonacci(n-1)+fibonacci(n-2);
+	}
+	public static int suma(int n)
+	{
+		if(n<=0)
+		{
+			return n;
+		}
+		return fibonacci(n)+suma(n-1);
 	}
 }

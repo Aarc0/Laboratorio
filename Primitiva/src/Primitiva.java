@@ -40,10 +40,10 @@ public class Primitiva
 		System.out.println("\n-El dinero sobrante es: " + resto +"€");
 		//Le dice a la persona cuanto dinero le queda.	
 		//Esta array guarda el número de casillas que haya indicado el usuario
-		int [][] boleto = new int[ca][5];
+		int [][] boleto = new int[ca][6];
 		for(int i = 0; i<ca;i++)
 		{
-			for(int z = 0; z<5;z++)
+			for(int z = 0; z<6;z++)
 			{
 				boleto[i][z] =(int)(1+Math.random()*49);
 			}
@@ -107,8 +107,7 @@ public class Primitiva
 				rep[boleto[i][x]] += 1;
 				if(rep[boleto[i][x]] == 2)
 				{
-					boleto[i][x] = (int)(1+Math.random()*49);
-					
+					boleto[i][x] = (int)(1+Math.random()*49);	
 					for(int ii = 0;ii<boleto.length;ii++)
 					{
 						for(int xx = 0; xx<boleto[ii].length;xx++)
@@ -125,12 +124,12 @@ public class Primitiva
 	//Este modulo se encarga de crear el boleto ganador
 	public static int [] ganador()
 	{
-		int [] bolpre = new int [6];
-		for(int i = 0; i<6;i++)
+		int [] bolpre = new int [7];
+		for(int i = 0; i<7;i++)
 		{
 			bolpre[i] =(int) (1+Math.random()*49);
 		}
-		bolpre[5] = (int)(Math.random()*9);
+		bolpre[6] = (int)(Math.random()*9);
 		
 		bolpre = nonrepg(bolpre);
 		
