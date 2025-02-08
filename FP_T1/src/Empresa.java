@@ -3,149 +3,159 @@ import java.util.Scanner;
 public class Empresa 
 {
 	static Scanner n = new Scanner(System.in);
-	static Empleados trab = new Empleados();
 	
 	public static void main(String[] args) 
 	{
-		String eleccion = " ";
-		System.out.println("Cuantos trabajadores quiere ingresar?");
-		int num = n.nextInt();
-		double [][] salarios = new double[num][3];
-		String[] nombres = new String[num];
-		
-		//////////////////////////////////////////////////////////////
-		nombres = nombres(nombres);
-		//////////////////////////////////////////////////////////////
-		salarios = sueldos(salarios, nombres);
-		salarios = gratificacion(salarios,nombres);
-		//////////////////////////////////////////////////////////////
-		for(int i = 0;i<nombres.length;i++)
-		{
-			System.out.println("El empleado "+nombres[i]+" tiene un salario mensual de "+salarios[i][1]+" y una paga extra de "+salarios[i][2]);
-		}
-		
-		System.out.println("Quiere actualizar algún dato? Si(s)/No(n)");
-		eleccion = n.next();
-		
-		if(eleccion.charAt(0) == 's' ||eleccion.charAt(0) == 'S')
-		{	
-			cambios(salarios, nombres);
-		}
-		for(int i = 0;i<nombres.length;i++)
-		{
-			System.out.println("El empleado "+nombres[i]+" tiene un salario mensual de "+salarios[i][1]+" y una paga extra de "+salarios[i][2]);
-		}
-	}
-	public static void lista()
-	{
-		System.out.println("Qué dato quiere actualizar?\r\n"
-							+ "1.-Nombre y apellido\r\n"
-							+ "2.-Sueldo mensual\r\n"
-							+ "3.-Gratificacion");
-	}
-	public static String [] nombres(String[] name)
-	{
-		Empleados trab = new Empleados();
-		for(int i = 0;i<name.length;i++)
-		{
-			System.out.println("Escoja el nombre del trabajador número "+(i+1));
-			String nom = n.next();
-			System.out.println("Escoja el apellido del trabajador número "+(i+1));
-			String ap = n.next();
-			name[i] = trab.nom_ap(nom,ap);
-		}
-		
-		return name;
-	}
-
-	public static double[][] sueldos(double [][] sal, String[] name)
-	{
-		for(int i = 0;i<name.length;i++)
-		{
-			System.out.println("Ingrese el sueldo anual del trabajador "+(i+1));
-			sal[i][0] = n.nextInt();
-			sal[i][1] = trab.salario_m(sal[i][0]);
-		}
-		return sal;
-	}
-
-	public static double[][] gratificacion(double [][] sal, String[] name)
-	{
-		for(int i = 0;i<name.length;i++)
-		{
-			System.out.println("Ingrese la gratificación (en porcentaje \"%\") del trabajador "+(i+1)+ " que tiene un sueldo anual de: "+sal[i][0]+"€");
-			double porcent = n.nextInt();
-			porcent /= 100;
-			double grat = (sal[i][0]*(porcent));
-			sal[i][2] = trab.gratificacion(grat);
-		}
-		return sal;
-	}
-
-	public static void cambios(double[][]sal,String[]name)
-	{
 		boolean b = true;
+		String eleccion = " ";
+		double i = 1;
+		Empleados emp1 = new Empleados();
+		Empleados emp2 = new Empleados();
+		
 		do
 		{
-			lista();
-			int dat = n.nextInt();
+			//Nombre y apellido
+			//////////////////////////////////////////////////////////////
+			System.out.println("Escoja el nombre del empleado "+ i);
+			String nom = n.next();
+			if(i == 1) emp1.Setnombre(nom);
+			else emp2.Setnombre(nom);
+			System.out.println("Escoja el apellido del empleado "+ i);
+			String ap = n.next();
+			if(i==1) emp1.Setapellido(ap);
+			else emp2.Setapellido(ap);
+			//////////////////////////////////////////////////////////////
 			
-			switch(dat)
+			//Salario anual
+			//////////////////////////////////////////////////////////////
+			System.out.println("Escoja el salario anual del empleado "+i);
+			double sa = n.nextDouble();
+			if(i==1) emp1.Setsalario_a(sa);
+			else emp2.Setsalario_a(sa);
+			//////////////////////////////////////////////////////////////
+			
+			//Salario mensual
+			//////////////////////////////////////////////////////////////
+			if(i == 1) emp1.Setsalario_m(emp1.Getsalario_a());       
+			 
+			else emp2.Setsalario_m(emp2.Getsalario_a()); 
+			//////////////////////////////////////////////////////////////
+			
+			//Gratificación
+			//////////////////////////////////////////////////////////////
+			double mensaje = (i == 1)? emp1.Getsalario_a() : emp2.Getsalario_a();
+			System.out.println("Teniendo en cuenta que el salario anual del empleado "+i+" es de "+mensaje+"€, escoja una gratificación en porcentaje \"%\"");
+			double grat = (n.nextDouble()/100);
+			grat = (i==1)? emp1.Getsalario_a()*grat :  emp2.Getsalario_a()*grat;
+			if(i ==1) emp1.Setgratif(grat);
+			else emp2.Setgratif(grat);
+			//////////////////////////////////////////////////////////////
+			
+			System.out.println("El empleado "+((i==1)?emp1.Getnombre()+" "+emp1.Getapellido():emp2.Getnombre()+" "+emp2.Getapellido())
+								+" tiene un salario mensual de "+((i==1)?emp1.Getsalario_m():emp2.Getsalario_m())
+								+"€, y una paga extra de "+((i==1)?emp1.Getgratif():emp2.Getgratif()));
+			i++;
+			if(i == 3)
 			{
-				case 1:
-					System.out.println("¿A qué empleado desea cambiarle el nombre?: ");
-					for(int i = 0;i<name.length;i++)
-					{
-						System.out.println((i+1)+".-"+name[i]);  
-					}
-					int emp = n.nextInt();
-					
-					System.out.println("Usted ha escogido al empleado número: "+emp);
-					System.out.println("Escoja el nombre del trabajador número "+emp);
-					String nom = n.next();
-					System.out.println("Escoja el apellido del trabajador número "+emp);
-					String ap = n.next();
-					name[(emp-1)] = trab.nom_ap(nom, ap);
-					break;
-				
-				case 2:
-					System.out.println("¿A qué empleado desea cambiarle el sueldo anual?: ");
-					for(int i = 0;i<name.length;i++)
-					{
-						System.out.println((i+1)+".-"+name[i]);  
-					}
-					emp = n.nextInt();
-					System.out.println("Usted ha escogido al empleado número: "+emp);
-					System.out.println("Escoja el sueldo anual del trabajador número "+emp);
-					sal[emp-1][0] = n.nextInt();
-					sal[emp-1][1] = trab.salario_m(sal[emp-1][0]);
-					System.out.println("El nuevo sueldo anual del trabajador "+emp+" es: "+sal[emp-1][0]+"\nY el nuevo sueldo mensual es: "+sal[emp-1][1]);
-					break;
-					
-				case 3:
-					System.out.println("¿A qué empleado desea cambiarle la gratificación?: ");
-					for(int i = 0;i<name.length;i++)
-					{
-						System.out.println((i+1)+".-"+name[i]);  
-					}
-					emp = n.nextInt();
-					System.out.println("Usted ha escogido al empleado número: "+emp);
-					System.out.println("Escoja la nueva gratificación (en porcentaje) del trabajador número "+emp);
-					double porcent = n.nextInt();
-					porcent /= 100;
-					double grat = (sal[emp-1][0]*(porcent));
-					sal[emp-1][2] = trab.gratificacion(grat);
-					System.out.println("La nueva gratificación del trabajador "+emp+" es: "+sal[emp-1][2]);
-					break;
-			}
-			
-			System.out.println("Quiere actualizar algún dato nuevamente? Si(s)/No(n)");
-			String eleccion = n.next();
-			
-			if(eleccion.charAt(0) == 'n' ||eleccion.charAt(0) == 'N')
-			{	
 				b = false;
 			}
 		}while(b);
+		
+		System.out.println("Quiere actualizar los datos?");
+		eleccion = n.next();
+		if(eleccion.charAt(0) == 's'||eleccion.charAt(0) == 'S')
+		{
+			b = true;
+		}
+		else return;
+		do
+		{
+			lista();
+			int num = n.nextInt();
+			switch(num)
+			{
+				case 1:
+					System.out.println("A qué empleado quiere cambiarle el nombre?\n"
+										+"1.-"+emp1.Getnombre()+" "+emp1.Getapellido()+"\n"
+										+"2.-"+emp2.Getnombre()+" "+emp2.Getapellido());
+					i = n.nextInt();
+					System.out.println("Escoja el nuevo nombre");
+					String nom = n.next();
+					if(i == 1) emp1.Setnombre(nom);
+					else emp2.Setnombre(nom);
+					break;
+				
+				case 2:
+					System.out.println("A qué empleado quiere cambiarle el apellido?\n"
+							+"1.-"+emp1.Getnombre()+" "+emp1.Getapellido()+"\n"
+							+"2.-"+emp2.Getnombre()+" "+emp2.Getapellido());
+					i = n.nextInt();
+					System.out.println("Escoja el nuevo apellido");
+					String ap = n.next();
+					if(i == 1) emp1.Setapellido(ap);
+					else emp2.Setapellido(ap);				
+					break;
+				
+				case 3:
+					System.out.println("A qué empleado quiere cambiarle el salario anual?\n"
+							+"1.-"+emp1.Getnombre()+" "+emp1.Getapellido()+"\n"
+							+"2.-"+emp2.Getnombre()+" "+emp2.Getapellido());
+					i = n.nextInt();
+					System.out.println("Escoja el nuevo salario anual");
+					double sa = n.nextDouble();
+					if(i == 1) 
+					{
+						emp1.Setsalario_a(sa);
+						emp1.Setsalario_m(emp1.Getsalario_a());
+						System.out.println("El nuevo salario anual del empleado "+i+" es de: "+emp1.Getsalario_a()+"€\n"
+											+"Por favor escoja una nueva gratificación (en porcentaje \"%\")" );
+						i = (n.nextDouble()/100);
+						emp1.Setgratif(emp1.Getsalario_a()*i);
+					}
+					else
+					{
+						emp2.Setsalario_a(sa);
+						emp2.Setsalario_m(emp2.Getsalario_a());
+						System.out.println("El nuevo salario anual del empleado "+i+" es de: "+emp2.Getsalario_a()+"€\n"
+											+"Por favor escoja una nueva gratificación (en porcentaje \"%\")" );
+						i = (n.nextDouble()/100);
+						emp2.Setgratif(emp2.Getsalario_a()*i);
+					}					
+					break;
+			}
+			
+			System.out.println("Quiere seguir actualizando los datos? (Si/No)");
+			eleccion = n.next();
+			if(eleccion.charAt(0) == 'n'||eleccion.charAt(0) == 'N')
+			{
+				b = false;
+				i = 1;
+			}
+		}while(b);
+		
+		if(i == 1)
+		{
+			b = true;
+			do
+			{	
+				System.out.println("El empleado "+((i==1)?emp1.Getnombre()+" "+emp1.Getapellido():emp2.Getnombre()+" "+emp2.Getapellido())
+									+" tiene un salario mensual de "+((i==1)?emp1.Getsalario_m():emp2.Getsalario_m())
+									+" y una paga extra de "+((i==1)?emp1.Getgratif():emp2.Getgratif()));
+				i++;
+				if(i ==3)
+				{
+					b = false;
+				}
+			}while(b);
+		}
+		
 	}
+	public static void lista()
+	{
+		System.out.println("¿Qué dato quiere actualizar?\n "
+				+ "1.-Nombre\n "
+				+ "2.-Apellido\n "
+				+ "3.-Salario anual");
+	}
+	
 }

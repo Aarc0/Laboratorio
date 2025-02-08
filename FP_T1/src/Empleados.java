@@ -1,23 +1,58 @@
-import java.util.Scanner;
-
 public class Empleados 
 {
-	static Scanner n = new Scanner(System.in);
-	public String nom_ap(String nombre, String apellido)
+	private String nombre;
+	private String apellido;
+	private double salario_a;
+	private double gratif;
+	private double salario_m;
+	
+	public void Setnombre(String nombre)
 	{
-		String completo = nombre+" "+apellido;
-		return completo;
-	}
-	public double salario_m(double salario)
-	{
-		return (salario/14);
-	}
-	public double gratificacion(double num)
-	{
-		return 1000+num;
+		this.nombre = nombre;
 	}
 	
+	public String Getnombre()
+	{
+		return nombre;
+	}
 	
+	public void Setapellido(String apellido)
+	{
+		this.apellido = apellido;
+	}
 	
+	public String Getapellido()
+	{
+		return apellido;
+	}
 	
+	public void Setgratif(double gratif)
+	{
+		this.gratif = 1000+gratif;
+	}
+	
+	public double Getgratif()
+	{
+		return gratif;
+	}
+	
+	public void Setsalario_a(double salario_a)
+	{
+		this.salario_a = salario_a;
+	}
+	
+	public double Getsalario_a()
+	{
+		return salario_a;
+	}
+	
+	public void Setsalario_m(double salario_a)
+	{
+		this.salario_m = salario_a/14;
+	}
+	
+	public double Getsalario_m()
+	{
+		return salario_m;
+	}	
 }
