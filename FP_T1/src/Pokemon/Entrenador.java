@@ -1,50 +1,20 @@
 package Pokemon;
 
-
-
 public class Entrenador 
 {
 	private String nombre;
 	private String Np;
 	private String Tp;
 	
-	public String getPok1n()
+	public String getPokn()
 	{
 		return Np;
 	}
-	public String getPok1t()
+	public String getPokt()
 	{
 		return Tp;
 	}
-	public void setpok1(String Np, String Tp)
-	{
-		this.Np = Np;
-		this.Tp = Tp;
-	}
-	
-	public String getPok2n()
-	{
-		return Np;
-	}
-	public String getPok2t()
-	{
-		return Tp;
-	}
-	public void setpok2(String Np, String Tp)
-	{
-		this.Np = Np;
-		this.Tp = Tp;
-	}
-	
-	public String getPok3n()
-	{
-		return Np;
-	}
-	public String getPok3t()
-	{
-		return Tp;
-	}
-	public void setpok3(String Np, String Tp)
+	public void setpok(String Np, String Tp)
 	{
 		this.Np = Np;
 		this.Tp = Tp;
@@ -59,8 +29,10 @@ public class Entrenador
 		this.nombre = nombre;
 	}
 	
-	public Entrenador(String nombre) 
+	public Entrenador(String nombre, String Np, String Tp)
 	{
 		this.nombre = nombre;
+		this.Np = Np;
+		this.Tp = Tp;
 	}
 }
