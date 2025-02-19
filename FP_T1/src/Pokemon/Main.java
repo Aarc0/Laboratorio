@@ -1,14 +1,25 @@
 package Pokemon;
+import java.util.Scanner;
 
 public class Main 
 {
+	static Scanner n = new Scanner(System.in);
 	public static void main(String[] args)
 	{
-		Pokemons po1 = new Pokemons("Pikachu","Eléctrico");
-		Pokemons po2 = new Pokemons("Bulbasaur","Planta");
-		Pokemons po3 = new Pokemons("Charmander","Fuego");
-		Pokemons po4 = new Pokemons("Squirtle","Agua");
-		Pokemons po5 = new Pokemons("Caterpie","Bicho");
+		
+		Pokemons [] pok = new Pokemons[5];
+		String nom;
+		String tip;
+		for(int i = 0; i<pok.length;i++)
+		{
+			System.out.println("Introduzca el nombre del pokemon "+(i+1));
+			nom = n.next();
+			System.out.println("Introduzca el tipo del pokemon "+(i+1));
+			tip = n.next();
+			
+			pok[i] = new Pokemons(nom, tip);
+		}
+		
 		Entrenador entrenador = new Entrenador("Ash");
 		
 		int x = 0;
@@ -23,9 +34,9 @@ public class Main
 		}
 		
 		System.out.println("== Estado inicial de los Pokémon ==");
-		System.out.println("Pokemon: "+po1.Getnombre()+" Tipo: "+po1.Gettipo());
-		System.out.println("Pokemon: "+po2.Getnombre()+" Tipo: "+po2.Gettipo());
-		System.out.println("Pokemon: "+po3.Getnombre()+" Tipo: "+po3.Gettipo()+"\n\n");
+		System.out.println("Pokemon: "+pok[0].Getnombre()+" Tipo: "+pok[0].Gettipo());
+		System.out.println("Pokemon: "+pok[1].Getnombre()+" Tipo: "+pok[1].Gettipo());
+		System.out.println("Pokemon: "+pok[2].Getnombre()+" Tipo: "+pok[2].Gettipo()+"\n\n");
 		
 		System.out.println("== Capturando Pokémon ==");
 		// X es contador de pokeballs
@@ -35,9 +46,9 @@ public class Main
 		while(x<pkb.length)
 		{
 			////////////////////////////////////////
-			if(z == 0)	aux = po1.Getnombre();
-			else if(z == 1)	aux = po2.Getnombre();
-			else aux = po3.Getnombre();
+			if(z == 0)	aux = pok[0].Getnombre();
+			else if(z == 1)	aux = pok[1].Getnombre();
+			else aux = pok[2].Getnombre();
 			///////////////////////////////////////
 			
 			while(y<=1)
@@ -53,9 +64,9 @@ public class Main
 			if(y == 2)
 			{
 				System.out.println("¡Captura exitosa! "+aux+" ahora es tuyo.\n");
-				if(z == 0)	{entrenador.setPok1(aux); entrenador.setPok1t(po1.Gettipo());}
-				else if(z == 1)	{entrenador.setPok2(aux); entrenador.setPok2t(po2.Gettipo());}
-				else {entrenador.setPok3(aux); entrenador.setPok3t(po3.Gettipo());}
+				if(z == 0)	entrenador.setpok1(pok[0].Getnombre(),pok[0].Gettipo());
+				else if(z == 1)	entrenador.setpok2(pok[1].Getnombre(),pok[1].Gettipo()); 
+				else entrenador.setpok3(pok[2].Getnombre(),pok[2].Gettipo()); 
 				y = 0;
 				z++;
 			}
@@ -63,7 +74,7 @@ public class Main
 			//Equipo lleno
 			if(z == 3)
 			{
-				aux = po4.Getnombre();
+				aux = pok[3].Getnombre();
 				System.out.println("== Captura con equipo lleno ==");
 				while(y<=1)
 				{
@@ -86,15 +97,17 @@ public class Main
 			x++;
 			if(x == 5)
 			{
-				System.out.println("\nNo hay Pokéballs disponibles para capturar a "+po5.Getnombre()+"\n");
+				System.out.println("\nNo hay Pokéballs disponibles para capturar a "+pok[4].Getnombre()+"\n");
 			}
 		}
+		
+		
 		System.out.println("== Estado final de los Pokémon de Ash ==");
 		for(int i = 0;i<3;i++)
 		{
-			if(i == 0) System.out.println("Pokemon: "+entrenador.getPok1()+" Tipo: "+entrenador.getPok1t());
-			else if(i == 1) System.out.println("Pokemon: "+entrenador.getPok2()+" Tipo: "+entrenador.getPok2t());
-			else System.out.println("Pokemon: "+entrenador.getPok3()+" Tipo: "+entrenador.getPok3t());
+			if(i == 0) System.out.println("Pokemon: "+entrenador.getPok1n()+" Tipo: "+entrenador.getPok1t());
+			else if(i == 1) System.out.println("Pokemon: "+entrenador.getPok2n()+" Tipo: "+entrenador.getPok2t());
+			else System.out.println("Pokemon: "+entrenador.getPok3n()+" Tipo: "+entrenador.getPok3t());
 		}
 	}
 }
