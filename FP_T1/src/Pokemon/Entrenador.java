@@ -1,24 +1,34 @@
 package Pokemon;
-
 public class Entrenador 
 {
 	private String nombre;
-	private String Np;
-	private String Tp;
+	private Pokemons [] pok;
+	private Pokeball [] pkb;
 	
-	public String getPokn()
+	
+	/////////////////////////////////
+	public Pokemons[] getpok()
 	{
-		return Np;
+		return pok;
 	}
-	public String getPokt()
+	
+	public void setpok(Pokemons[] pok)
 	{
-		return Tp;
+		this.pok = pok;
 	}
-	public void setpok(String Np, String Tp)
+	/////////////////////////////////
+	
+	/////////////////////////////////
+	public Pokeball[] getPkb() 
 	{
-		this.Np = Np;
-		this.Tp = Tp;
+		return pkb;
 	}
+
+	public void setPkb(Pokeball[] pkb) 
+	{
+		this.pkb = pkb;
+	}
+	/////////////////////////////////
 	
 	public String getNombre() 
 	{
@@ -28,11 +38,13 @@ public class Entrenador
 	{
 		this.nombre = nombre;
 	}
+	/////////////////////////////////
 	
-	public Entrenador(String nombre, String Np, String Tp)
+	public Entrenador()
 	{
-		this.nombre = nombre;
-		this.Np = Np;
-		this.Tp = Tp;
+		
+		this.pok = new Pokemons[3];
+		this.pkb = new Pokeball[6];
 	}
+	
 }
