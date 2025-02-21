@@ -5,6 +5,12 @@ public class Entrenador
 	private Pokemons [] pok;
 	private Pokeball [] pkb;
 	
+	public Entrenador(String nombre,Pokemons[] pok, Pokeball[] pkb)
+	{
+		this.nombre = nombre;
+		this.pok = pok;
+		this.pkb = pkb;
+	}
 	
 	/////////////////////////////////
 	public Pokemons[] getpok()
@@ -30,6 +36,7 @@ public class Entrenador
 	}
 	/////////////////////////////////
 	
+	/////////////////////////////////
 	public String getNombre() 
 	{
 		return nombre;
@@ -40,11 +47,23 @@ public class Entrenador
 	}
 	/////////////////////////////////
 	
-	public Entrenador()
+
+	
+	public String atrapar(Pokeball pkb[])
 	{
+		int x = 0;
+		String aux = "a";
+		int its = 0;
 		
-		this.pok = new Pokemons[3];
-		this.pkb = new Pokeball[6];
+		if(x<pkb.length)
+		{			
+			pkb[x] = new Pokeball(pkb[x].usos(pok[x].Getnombre(), its, pkb[x].getIntegridad()));
+			aux = pok[x].Getnombre();
+			x++;
+			return aux;
+		}
+		else return aux;
+		
 	}
 	
 }

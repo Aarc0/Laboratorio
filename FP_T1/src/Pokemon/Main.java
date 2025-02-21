@@ -15,45 +15,26 @@ public class Main
 		
 		
 		//Aquí creo al entrenador
-		Entrenador Ash = new Entrenador();
-		
-
-
 		System.out.println("==Estado inicial de los Pokemons==");
 		for(int i = 0;i<3;i++)
 		{
-			System.out.println("Pokemons: "+pok[i].Getnombre()+""+pok[i].Gettipo());
+			System.out.println("Pokemons: "+pok[i].Getnombre()+"Tipo: "+pok[i].Gettipo());
 		}
-		
+
 		Pokeball [] pkb = new Pokeball[6];
 		
 		//Pongo la integridad de todas a 10
 		for(int i = 0; i<pkb.length;i++)
 		{
-			pkb[i] = new Pokeball(10);
+			pkb[i] = new Pokeball(10,3);
+			System.out.println(pkb[1].getIntegridad()+pkb[1].);
 		}
 		
+		Entrenador entrenador = new Entrenador("Ash",pok,pkb);
+
+		System.out.println("\n==Capturando Pokemons==");
 		
+
 		
-		
-		
-		
-		System.out.println("==Capturando Pokemons==");
-		
-		//Cuenta los pokemons
-		int x = 0;
-		//Cuenta los intentos
-		int its = 0;
-		
-		
-		
-		
-		while(x<pok.length)
-		{
-			
-			
-			
-			
-		}	
 	}
 }
