@@ -3,7 +3,6 @@ package Pokemon;
 public class Pokeball 
 {
 	private int integridad;
-	private int usos;
 	
 	/////////////////////////////////
 	public int getIntegridad() 
@@ -15,24 +14,21 @@ public class Pokeball
 		this.integridad = integridad;
 	}
 	/////////////////////////////////
-
-	/////////////////////////////////
-	public int getUsos() 
-	{
-		return usos;
-	}
-	public void setUsos(int usos) 
-	{
-		this.usos = usos;
-	}
 	
-	public Pokeball(int integridad, int usos) 
+	public Pokeball(int integridad) 
 	{
 		this.integridad = integridad;
 	}
 	/////////////////////////////////	
 	
-	public int usos(String pok, int its, int integridad)
+	@Override
+    public String toString() {
+		String integrity = String.valueOf(integridad);
+        return integrity;
+    }
+	
+	
+	public int captura(String pok, int its, int integridad, int aux)
 	{
 		while(its <3)
 		{
@@ -44,10 +40,15 @@ public class Pokeball
 					its++;
 					integridad -= 4;
 				}
+				else if(its == 2 && aux < 3)
+				{
+					System.out.println("¡Captura exitosa! "+pok+" ahora es tuyo.\n");	
+					integridad -= 4;
+				}
 				else
 				{
-					System.out.println("¡Captura exitosa! "+pok+" ahora es tuyo.");	
-					integridad -= 4;
+					System.out.println("Captura fallida, el entrenador no tiene suficiente espacio");
+					return integridad;
 				}
 			}
 			else if(integridad <0)	
@@ -56,7 +57,8 @@ public class Pokeball
 			}
 			else
 			{
-				System.out.println("No hay pokeballs disponibles");
+				System.out.println("\nNo hay pokeballs disponibles");
+				return 0;
 			}
 		}
 		return integridad;		

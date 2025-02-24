@@ -1,14 +1,17 @@
 package Pokemon;
+
+import java.util.Arrays;
+
 public class Entrenador 
 {
 	private String nombre;
 	private Pokemons [] pok;
 	private Pokeball [] pkb;
 	
-	public Entrenador(String nombre,Pokemons[] pok, Pokeball[] pkb)
+	public Entrenador(String nombre, Pokeball [] pkb)
 	{
 		this.nombre = nombre;
-		this.pok = pok;
+		this.pok = new Pokemons[3];
 		this.pkb = pkb;
 	}
 	
@@ -18,12 +21,14 @@ public class Entrenador
 		return pok;
 	}
 	
-	public void setpok(Pokemons[] pok)
+	public void setPok(Pokemons pok, int x) 
 	{
-		this.pok = pok;
+		this.pok[x] = pok;
 	}
+	
 	/////////////////////////////////
 	
+
 	/////////////////////////////////
 	public Pokeball[] getPkb() 
 	{
@@ -46,24 +51,18 @@ public class Entrenador
 		this.nombre = nombre;
 	}
 	/////////////////////////////////
-	
 
-	
-	public String atrapar(Pokeball pkb[])
+	public void atrapar(Pokemons pok, int x)
 	{
-		int x = 0;
-		String aux = "a";
-		int its = 0;
-		
-		if(x<pkb.length)
-		{			
-			pkb[x] = new Pokeball(pkb[x].usos(pok[x].Getnombre(), its, pkb[x].getIntegridad()));
-			aux = pok[x].Getnombre();
-			x++;
-			return aux;
-		}
-		else return aux;
-		
+		int its = 0;			
+		pkb[x] = new Pokeball(pkb[x].captura(pok.Getnombre(), its, pkb[x].getIntegridad(),x));
+		if (x < 3) setPok(pok, x);
+	}
+
+	@Override
+	public String toString() 
+	{
+		return "Entrenador [nombre=" + nombre + ", pok=" + Arrays.toString(pok) + ", pkb=" + Arrays.toString(pkb) + "]";
 	}
 	
 }

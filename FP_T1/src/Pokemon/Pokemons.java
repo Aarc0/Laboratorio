@@ -28,6 +28,11 @@ public class Pokemons
 		this.tipo = tipo;
 	}
 	
+	@Override
+    public String toString() {
+        return nombre + " (" + tipo + ")";
+    }
+	
 	
 }
 
