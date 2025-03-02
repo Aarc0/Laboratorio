@@ -12,12 +12,12 @@ public class Main
 		pok[3] = new Pokemons("Squirtle", "Agua");
 		pok[4] = new Pokemons("Caterpie", "Bicho");
 		
-		
 		System.out.println("==Estado inicial de los Pokemons==");
 		for(int i = 0;i<3;i++)
 		{
 			System.out.println("Pokemons: "+pok[i].Getnombre()+"Tipo: "+pok[i].Gettipo());
 		}
+		
 
 		//PONGO LA INTEGRIDAD DE TODAS A 10
 		Pokeball [] pkb = new Pokeball[6];
@@ -35,7 +35,7 @@ public class Main
 			entrenador.atrapar(pok[a],a);
 			a++;
 		}
-		
+
 		//DESDE AQUÍ SE EMPIEZA LA CAPTURA SIN ENERGÍA EN LAS POKEBALLS
 		for(int i = 0; i<pkb.length;i++)
 		{
