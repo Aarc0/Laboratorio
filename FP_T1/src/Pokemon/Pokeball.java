@@ -15,6 +15,7 @@ public class Pokeball
 	}
 	/////////////////////////////////
 	
+	/////////////////////////////////
 	public Pokeball(int integridad) 
 	{
 		this.integridad = integridad;
