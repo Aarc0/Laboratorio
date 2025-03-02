@@ -2,12 +2,24 @@ package H2;
 
 public class MasterBall extends Pokeball
 {
-	private int aumento;
-	
-	public MasterBall(int integridad, int percent, int aumento)
+	private double estabilidad;
+
+	public MasterBall(int integridad, double percent, double estabilidad) 
 	{
 		super(integridad, percent);
-		this.aumento = aumento;
+		this.estabilidad = estabilidad;
+	}
+
+	public double getEstabilidad() 
+	{
+		return estabilidad;
+	}
+
+	public void setEstabilidad(double estabilidad) 
+	{
+		this.estabilidad = estabilidad;
 	}
 	
+	
+		
 }

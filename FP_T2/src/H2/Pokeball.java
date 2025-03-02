@@ -2,7 +2,8 @@ package H2;
 
 public class Pokeball
 {
-	protected int integridad, percent;
+	protected int integridad;
+	protected double percent;
 	
 	
 	//////////////////////////////////////////////
@@ -17,17 +18,17 @@ public class Pokeball
 	//////////////////////////////////////////////
 
 	//////////////////////////////////////////////
-	public int getPercent() 
+	public double getPercent() 
 	{
 		return percent;
 	}
-	public void setPercent(int percent) 
+	public void setPercent(double percent) 
 	{
 		this.percent = percent;
 	}
 	//////////////////////////////////////////////
 
-	public Pokeball(int integridad, int percent)
+	public Pokeball(int integridad, double percent)
 	{
 		this.integridad = integridad;
 		this.percent = percent;
