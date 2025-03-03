@@ -79,7 +79,13 @@ public class Pokemons
 		this.experiencia = experiencia;
 		this.salud = salud;
 	}
-	
-	
+
+	public void MostrarPokemon(Pokemons[] pok)
+	{
+		for (int i = 0; i < pok.length; i++) 
+		{
+			System.out.println("Nombre: "+pok[i].getNombre()+" Tipo: "+pok[i].getTipo()+" Nivel: "+pok[i].getNivel()+" Velocidad: "+pok[i].getVelocidad()+" Experiencia: "+pok[i].getExperiencia()+" Salud: "+pok[i].getSalud());
+		}
+	}
 	
 }

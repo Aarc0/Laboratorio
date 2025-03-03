@@ -9,7 +9,7 @@ public class UltraBall extends Pokeball
 	{
 		return potencia;
 	}
-	public void setPotencia(int potencia) 
+	public void setPotencia(double potencia) 
 	{
 		this.potencia = potencia;
 	}
