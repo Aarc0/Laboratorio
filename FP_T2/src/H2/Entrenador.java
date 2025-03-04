@@ -107,7 +107,9 @@ public class Entrenador
 						System.out.println("¡Captura exitosa! "+pok[po].getNombre()+" ahora es tuyo");
 						setPoke(pok[po], cap);
 						po++;
-						i++;
+						mod = pkb[i].integridad-4;
+						pkb[i].setIntegridad(mod);
+						if(pkb[i].getIntegridad()<=0) i++;
 						cap++;
 						break;	
 
@@ -120,7 +122,9 @@ public class Entrenador
 						setPoke(pok[po], cap);
 						cap++;
 						po++;
-						i++;
+						mod = pkb[i].integridad-4;
+						pkb[i].setIntegridad(mod);
+						if(pkb[i].getIntegridad()<=0) i++;
 						break;
 				}				
 			}
@@ -133,7 +137,11 @@ public class Entrenador
 					System.out.println("¡Captura exitosa! "+pok[po].getNombre()+" ahora es tuyo");
 					setPoke(pok[po], cap);
 					po++;
-					i++;
+					pot = 0;
+					((UltraBall)pkb[i]).setPotencia(pot);
+					mod = pkb[i].integridad-4;
+					pkb[i].setIntegridad(mod);
+					if(pkb[i].getIntegridad()<=0) i++;
 					cap++;
 				}
 				else
@@ -143,8 +151,8 @@ public class Entrenador
 					pkb[i].setIntegridad(mod);
 					pot += 0.2;
 					((UltraBall)pkb[i]).setPotencia(pot);
+					if(((UltraBall)pkb[i]).getPotencia()==0.4)  ((UltraBall)pkb[i]).setPercent(1);
 					if(pkb[i].getIntegridad()<=0) i++;
-					if(((UltraBall)pkb[i]).getPotencia()==0.4) ((UltraBall)pkb[i]).setPercent(1);
 					po++;
 				}
 			}
@@ -171,14 +179,6 @@ public class Entrenador
 						if(pkb[i].getIntegridad()<=0) i++; 
 						break;	
 
-					/*case 'U':
-						mod = pkb[i].integridad-4;
-						pkb[i].setIntegridad(mod);
-						pot += 0.2;
-						((UltraBall)pkb[i]).setPotencia(pot);
-						if(pkb[i].getIntegridad()<=0) i++;
-						if(((UltraBall)pkb[i]).getPotencia()==0.4) ((UltraBall)pkb[i]).setPercent(1);
-						break;*/
 				}
 			}
 			else if(random == pkb[i].getPercent()) 
@@ -186,7 +186,9 @@ public class Entrenador
 				System.out.println("¡Captura exitosa! "+pok[po].getNombre()+" ahora es tuyo");
 				setPoke(pok[po], cap);
 				po++;
-				i++;
+				mod = pkb[i].integridad-4;
+				pkb[i].setIntegridad(mod);
+				if(pkb[i].getIntegridad()<=0) i++;
 				cap++;
 			}
 		}
