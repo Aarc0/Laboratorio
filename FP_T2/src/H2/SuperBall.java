@@ -29,11 +29,10 @@ public class SuperBall extends Pokeball
 		//Iterador de fallo
 		int f = 0;
 		
-		while(this.getIntegridad()>0) 
-		{
-			System.out.println("Usando la "+this.getClass().getSimpleName()+" probabilida de captura: "+ (this.percent*100)+"% | Integridad: "+this.integridad+" | Rachas: "+this.fallo);
+
+			System.out.println("Usando la "+this.getClass().getSimpleName()+" probabilida de captura: "+ Math.round(this.percent*100)+"% | Integridad: "+this.integridad+" | Rachas: "+this.fallo);
 			
-			if(f==0) setPercent(0.2);
+			if(this.getFallo()==0) setPercent(0.2);
 			
 			if(this.percent >= random)
 			{
@@ -48,10 +47,9 @@ public class SuperBall extends Pokeball
 				this.setIntegridad(this.integridad-4);
 				f+=1;
 				this.setPercent(this.getPercent()+0.1);
-				this.setFallo(f);
+				this.setFallo(this.getFallo()+1);
 				System.out.println("La captura de "+pok.getNombre()+" falló");
 			}
-		}
 		return b;
 	}
 

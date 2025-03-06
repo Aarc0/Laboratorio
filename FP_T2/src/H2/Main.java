@@ -4,7 +4,9 @@ import java.util.Iterator;
 
 public class Main 
 {
-	public static void main(String[] args) 
+
+	
+	public static void main(String[] args)
 	{
 		Pokeball[] pkb = new Pokeball[6];
 		//Integridad / probabilidad
@@ -19,7 +21,7 @@ public class Main
 		pkb[2] = new UltraBall(12,0.5,0);
 		
 		//Integridad / probabilidad / estabilidad
-		pkb[3] = new MasterBall(4,1,0.8);
+		pkb[3] = new MasterBall(1,0.8);
 		
 		Entrenador E1 = new Entrenador("Ash", 5, pkb);
 		
@@ -37,15 +39,32 @@ public class Main
 		System.out.println("== Inicio Pokemon en main ==");
 		pok[0].MostrarPokemon(pok);
 		
-		/*Datos
-		 * Tengo 6 Pokeball
-		 * Tengo 9 Pokemons
-		 */
 		
 		System.out.println("\n\n== Capturas ==");
+		
+		//Realizo el cambio de Pokeball con estas variable
+		int x = 0;
+		boolean b;
+		
+		//Iterador pokemons atrapados
+		
 		for (int i = 0; i < pok.length; i++) 
 		{
-			E1.Captura(pok[i]);
+			//Devuelve un booleano dependiendo de si 
+			
+			//Atrapa al pokemon = verdadero
+			
+			//Falso si = integridad < 0
+			b = E1.Captura(pok[i], x);
+			
+			if(b == false)
+			{
+				//X avanza pokeballs
+				x++;
+				
+				//I avanza pokemons
+				--i;
+			}
 		}
 		
 		E1.MostrarPoks();

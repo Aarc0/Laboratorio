@@ -4,9 +4,9 @@ public class MasterBall extends Pokeball
 {
 	private double estabilidad;
 
-	public MasterBall(int integridad, double percent, double estabilidad) 
+	public MasterBall(double percent, double estabilidad) 
 	{
-		super(integridad, percent);
+		super(4,percent);
 		this.estabilidad = estabilidad;
 	}
 
@@ -19,7 +19,15 @@ public class MasterBall extends Pokeball
 	{
 		this.estabilidad = estabilidad;
 	}
-	
-	
-		
+	public boolean Captura(Pokemons pok)
+	{
+		System.out.println("Usando la "+this.getClass().getSimpleName()+" probabilida de captura: "+ Math.round(this.percent*100)+"% | Estabilidad: "+this.estabilidad);
+		System.out.println("¡Captura exitosa! "+pok.getNombre()+" ahora es tuyo");
+		boolean	b = true;
+		this.setIntegridad(this.integridad-4);
+		double daño = Math.round(pok.getSalud()*(1-getEstabilidad()));
+		int salud = pok.getSalud()-(int)daño;
+		pok.setSalud(salud);			
+		return b;
+	}	
 }

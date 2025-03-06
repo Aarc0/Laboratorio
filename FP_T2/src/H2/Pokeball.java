@@ -49,6 +49,7 @@ public class Pokeball
 			}
 			else
 			{
+				System.out.println("La captura de "+pok.getNombre()+" falló");
 				setIntegridad(this.integridad-4);
 			}
 		}
