@@ -1,5 +1,7 @@
 package H2;
 
+import java.util.Iterator;
+
 public class Main 
 {
 	public static void main(String[] args) 
@@ -41,7 +43,11 @@ public class Main
 		 */
 		
 		System.out.println("\n\n== Capturas ==");
-		E1.Captura(pok);
+		for (int i = 0; i < pok.length; i++) 
+		{
+			E1.Captura(pok[i]);
+		}
+		
 		E1.MostrarPoks();
 	}
 

@@ -33,6 +33,27 @@ public class Pokeball
 		this.integridad = integridad;
 		this.percent = percent;
 	}
+	public boolean Captura(Pokemons pok)
+	{
+		double random = Math.random();
+		boolean b = false;
+		while(this.integridad>0) 
+		{
+			System.out.println("Usando la "+this.getClass().getSimpleName()+" probabilida de captura: "+ (this.percent*100)+"% | Integridad: "+this.integridad);
+			if(this.percent >= random)
+			{
+				System.out.println("¡Captura exitosa! "+pok.getNombre()+" ahora es tuyo");
+				b = true;
+				setIntegridad(this.integridad-4);
+				return b;
+			}
+			else
+			{
+				setIntegridad(this.integridad-4);
+			}
+		}
+		return b;
+	}
 	
 }
 
