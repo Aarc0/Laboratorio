@@ -1,6 +1,5 @@
 package H2;
 
-import java.util.Iterator;
 
 public class Main 
 {
@@ -41,32 +40,14 @@ public class Main
 		
 		
 		System.out.println("\n\n== Capturas ==");
-		
-		//Realizo el cambio de Pokeball con estas variable
-		int x = 0;
-		boolean b;
+
 		
 		//Iterador pokemons atrapados
 		
 		for (int i = 0; i < pok.length; i++) 
 		{
-			//Devuelve un booleano dependiendo de si 
-			
-			//Atrapa al pokemon = verdadero
-			
-			//Falso si = integridad < 0
-			b = E1.Captura(pok[i], x);
-			
-			if(b == false)
-			{
-				//X avanza pokeballs
-				x++;
-				
-				//I avanza pokemons
-				--i;
-			}
+			E1.Captura(pok[i]);
 		}
-		
 		E1.MostrarPoks();
 	}
 

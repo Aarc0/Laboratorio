@@ -32,7 +32,6 @@ public class SuperBall extends Pokeball
 
 			System.out.println("Usando la "+this.getClass().getSimpleName()+" probabilida de captura: "+ Math.round(this.percent*100)+"% | Integridad: "+this.integridad+" | Rachas: "+this.fallo);
 			
-			if(this.getFallo()==0) setPercent(0.2);
 			
 			if(this.percent >= random)
 			{
@@ -40,6 +39,7 @@ public class SuperBall extends Pokeball
 				b = true;
 				this.setIntegridad(this.integridad-4);
 				this.setFallo(0);
+				if(this.getFallo()==0) setPercent(0.2);
 				return b;
 			}
 			else

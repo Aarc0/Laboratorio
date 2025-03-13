@@ -37,8 +37,7 @@ public class Pokeball
 	{
 		double random = Math.random();
 		boolean b = false;
-		while(this.integridad>0) 
-		{
+
 			System.out.println("Usando la "+this.getClass().getSimpleName()+" probabilida de captura: "+ (this.percent*100)+"% | Integridad: "+this.integridad);
 			if(this.percent >= random)
 			{
@@ -52,7 +51,6 @@ public class Pokeball
 				System.out.println("La captura de "+pok.getNombre()+" falló");
 				setIntegridad(this.integridad-4);
 			}
-		}
 		return b;
 	}
 	

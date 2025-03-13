@@ -53,37 +53,34 @@ public class Entrenador
 	}
 	//////////////////////////////////////////
 	
-	public boolean Captura(Pokemons poke, int i)
+	public void Captura(Pokemons poke)
 	{			
 		//Para saber si fue atrapado o no
 		boolean b;	
+		int i;
+		
+		//Busca la pokeball con integridad mayor que 0
+		for(i = 0;i<pkb.length;i++)
+		{
+			if(pkb[i].getIntegridad()>0) break;
+		}
 		
 		//Condición que pongo para que el código se ejecute mientras el equipo no esté lleno
 		if(Entrenador.pat<6) 
 		{
 			//Si la integridad es mayor a 0 entra
-			if(pkb[i].getIntegridad()>0)
+
+			//Si atrapa al pokemon "b" se hace verdadero
+			
+			//Llama al método de la pokeball "Captura" y le paso como parametro un solo pokemon 
+			b = pkb[i].Captura(poke);
+			if(b)
 			{
-				//Si atrapa al pokemon "b" se hace verdadero
-				
-				//Llama al método de la pokeball "Captura" y le paso como parametro un solo pokemon 
-				b = pkb[i].Captura(poke);
-				if(b)
-				{
-					setPoke(poke,Entrenador.pat);
-					Entrenador.pat++;
-				}
-			}
-			//Si no es mayor a 0 devuelve falso lo que significa que no hay integridad
-			else
-			{
-				return false;
+				setPoke(poke,Entrenador.pat);
+				Entrenador.pat++;
 			}
 		}
 		else System.out.println("\nNo hay espacio para capturar a "+poke.getNombre()+", tienes el equipo lleno");
-		
-		//Para todo lo demás devuelve verdadero
-		return true;
 	}
 	public void MostrarPoks()
 	{
@@ -96,4 +93,5 @@ public class Entrenador
 			i++;
 		}
 	}
+	
 }
