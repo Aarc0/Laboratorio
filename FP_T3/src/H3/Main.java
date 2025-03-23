@@ -21,10 +21,11 @@ public class Main
 		
 		Entrenador E1 = new Entrenador("Ash", 5, pkb);
 		
-		Pokemons [] pok = new Pokemons[3];
-		pok[0] = new Planta("Bulbasaur"      ,"Planta"     ,1 ,30 ,0 ,100 ,100);
-		pok[1] = new Fuego("Charmander"    ,"Fuego"      ,1 ,40 ,0 ,100 ,100);
-		pok[2] = new Agua("Squirtle"     ,"Agua"       ,1 ,25 ,0 ,100 ,100);
+		Pokemons [] pok = new Pokemons[4];
+		pok[0] = new Planta("Bulbasaur"     ,"Planta"     ,1 ,30 ,0 ,100 ,100);
+		pok[1] = new Fuego("Charmander"    	,"Fuego"      ,1 ,40 ,0 ,100 ,100);
+		pok[2] = new Agua("Squirtle"     	,"Agua"       ,1 ,25 ,0 ,100 ,100);
+		pok[3] = new Roca("Geodude"			,"Roca"		  ,1 ,30 ,0 ,100 ,100);
 		
 		////////////////////////////////////////////////////////
 		System.out.println("== Inicio Pokemon en main ==");
@@ -42,10 +43,11 @@ public class Main
 		E1.MostrarPoks();
 		
 		System.out.println("\n== Batallas ==");
-		pok[0].atacar(pok[1]);
-		pok[1].atacar(pok[2]);
-		pok[2].atacar(pok[0]);
+		pok[2].atacar(pok[1]);
+		pok[2].atacar(pok[3]);
 		pok[1].atacar(pok[0]);
+		pok[1].atacar(pok[3]);
+		pok[1].atacar(pok[2]);
 		
 		
 
