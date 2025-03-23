@@ -51,10 +51,7 @@ public class Main
 
 		
 		System.out.println("\n==Resultado tras la batalla==");
-		for (Pokemons n : pok) 
-		{
-			System.out.println(n.toString());
-		}
+		for (Pokemons n : pok) {System.out.println(n.toString());}
 		
 		System.out.println("\n==Fin de la simulación==");
 		

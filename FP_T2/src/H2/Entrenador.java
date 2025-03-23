@@ -8,7 +8,7 @@ public class Entrenador
 	private String nombre;
 	
 	//Pongo esta variable para saber los pokemons atrapados que tengo
-	private static int pat = 0;
+	private int pat = 0;
 	
 	public Entrenador(String nombre, int nivel, Pokeball[] pkb ) 
 	{
@@ -66,18 +66,14 @@ public class Entrenador
 		}
 		
 		//Condición que pongo para que el código se ejecute mientras el equipo no esté lleno
-		if(Entrenador.pat<6) 
-		{
-			//Si la integridad es mayor a 0 entra
-
-			//Si atrapa al pokemon "b" se hace verdadero
-			
+		if(pat<6) 
+		{			
 			//Llama al método de la pokeball "Captura" y le paso como parametro un solo pokemon 
 			b = pkb[i].Captura(poke);
 			if(b)
 			{
-				setPoke(poke,Entrenador.pat);
-				Entrenador.pat++;
+				setPoke(poke,pat);
+				pat++;
 			}
 		}
 		else System.out.println("\nNo hay espacio para capturar a "+poke.getNombre()+", tienes el equipo lleno");
