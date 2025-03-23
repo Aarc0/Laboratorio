@@ -43,14 +43,20 @@ public class Main
 		E1.MostrarPoks();
 		
 		System.out.println("\n== Batallas ==");
-		pok[2].atacar(pok[1]);
-		pok[2].atacar(pok[3]);
-		pok[1].atacar(pok[0]);
-		pok[1].atacar(pok[3]);
-		pok[1].atacar(pok[2]);
+		for (int i = 0; i < pok.length; i++) 
+		{
+			for (int j = 0; j < pok.length; j++) 
+			{
+				if(i == j) continue;
+				pok[i].atacar(pok[j]);
+			}
+		}
 		
-		
-
+		for (int i = 0; i < pok.length; i++) 
+		{
+			//De esta manera se llama a un método sin necesidad de un objeto, lo que si es que tienes que volver ese método estático
+			Pokemons.Examinar(pok[i]);
+		}
 		
 		System.out.println("\n==Resultado tras la batalla==");
 		for (Pokemons n : pok) {System.out.println(n.toString());}

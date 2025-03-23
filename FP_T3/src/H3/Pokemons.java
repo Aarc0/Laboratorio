@@ -83,4 +83,12 @@ public abstract class Pokemons implements IFormulasDaño
 	public abstract void MostrarPokemon();
 	
 	public abstract void atacar(Pokemons pok);
+	
+	public static void Examinar(Pokemons pok)
+	{
+		if(pok.getSalud()<=0)
+		{
+			pok.setSalud(0);
+		}
+	}
 }

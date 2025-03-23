@@ -35,14 +35,14 @@ public class Roca extends Pokemons
 		System.out.println(getNombre()+" ataca a "+pok.getNombre());
 		daño = (int)((getNivel()*FACTOR_NIVEL_ROCA)+(DensidadRoca*FACTOR_TAMAÑO_ROCA));
 		
-		if(pok.getClass().getSimpleName() == "Fuego") 
+		if(pok.getClass().getSimpleName().equals("Fuego")) 
 		{
 			System.out.println("¡Es super efectivo!");
 			daño *= MULTIPLICADOR_VENTAJA;
 			pok.setSalud(pok.getSalud()-daño);
 			System.out.println(getNombre()+" lanza un ataque tipo roca causando "+ daño + " puntos de daño\n");
 		}
-		
+
 		else 
 		{
 			System.out.println("No es muy efectivo");

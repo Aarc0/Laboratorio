@@ -25,7 +25,7 @@ public class Fuego extends Pokemons
 		System.out.println(getNombre()+" ataca a "+pok.getNombre());
 		daño = (int)((getNivel()*FACTOR_NIVEL_FUEGO)+(temperaturaLlama*FACTOR_TEMPERATURA_LLAMA));
 		
-		if(pok.getClass().getSimpleName() == "Planta") 
+		if(pok.getClass().getSimpleName().equals("Planta")) 
 		{
 			System.out.println("¡Es super efectivo!");
 			daño *= MULTIPLICADOR_VENTAJA;

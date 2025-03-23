@@ -25,7 +25,7 @@ public class Agua extends Pokemons
 		System.out.println(getNombre()+" ataca a "+pok.getNombre());
 		daño = (int)((getNivel()*FACTOR_NIVEL_AGUA)+(presionAgua*FACTOR_PRESION_AGUA));
 		
-		if((pok.getClass().getSimpleName().equals("Fuego")) || (pok.getClass().getSimpleName() == "Roca")) 
+		if((pok.getClass().getSimpleName().equals("Fuego")) || (pok.getClass().getSimpleName().equals("Roca"))) 
 		{
 			System.out.println("¡Es super efectivo!");
 			daño *= MULTIPLICADOR_VENTAJA;
