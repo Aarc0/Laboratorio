@@ -24,7 +24,7 @@ public class Planta extends Pokemons
 		System.out.println(getNombre()+" ataca a "+pok.getNombre());
 		daño = (int)((getNivel()*FACTOR_NIVEL_PLANTA)+(densidadEsporas*FACTOR_DENSIDAD_ESPORAS));
 		
-		if(pok.getTipo().charAt(0) == 'A') 
+		if(pok.getClass().getSimpleName().equals("Agua")|| pok.getClass().getSimpleName().equals("Roca")) 
 		{
 			System.out.println("¡Es super efectivo!");
 			daño *= MULTIPLICADOR_VENTAJA;

@@ -14,6 +14,10 @@ public interface IFormulasDaño
 	
 	double FACTOR_DENSIDAD_ESPORAS = 0.4;
 	
+	double FACTOR_NIVEL_ROCA = 0.6;
+	
+	double FACTOR_TAMAÑO_ROCA = 0.4;
+	
 	double MULTIPLICADOR_VENTAJA = 2;
 	
 	double MULTIPLICADOR_DESVENTAJA = 0.5;
