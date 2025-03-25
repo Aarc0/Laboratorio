@@ -27,7 +27,6 @@ public class Ventana
 		f.add(etiqueta2);
 
 		f.setVisible(true);
-;
 		f.addWindowListener(new WindowAdapter()
 		{
 			@Override
