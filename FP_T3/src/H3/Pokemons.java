@@ -79,7 +79,7 @@ public abstract class Pokemons implements IFormulasDaño
 		this.experiencia = experiencia;
 		this.salud = salud;
 	}
-
+	
 	public abstract void MostrarPokemon();
 	
 	public abstract void atacar(Pokemons pok);
