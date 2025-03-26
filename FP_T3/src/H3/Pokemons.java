@@ -2,8 +2,8 @@ package H3;
 
 public abstract class Pokemons implements IFormulasDaño
 {
-	private String nombre, tipo;
-	private int nivel,velocidad,experiencia,salud;
+	protected String nombre, tipo;
+	protected int nivel,velocidad,experiencia,salud;
 	
 	//////////////////////////////////////////
 	public String getNombre() 
