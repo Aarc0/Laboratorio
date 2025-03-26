@@ -16,7 +16,6 @@ public class Fuego extends Pokemons
 		return temperaturaLlama;
 	}
 	
-	
 	@Override
 	public void atacar(Pokemons pok) 
 	{
