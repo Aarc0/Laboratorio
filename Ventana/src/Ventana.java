@@ -27,7 +27,10 @@ public class Ventana
 		f.add(etiqueta2);
 
 		f.setVisible(true);
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/Aarc0/Laboratorio.git
 		f.addWindowListener(new WindowAdapter()
 		{
 			@Override
