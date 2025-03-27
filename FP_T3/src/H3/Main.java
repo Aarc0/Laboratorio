@@ -21,7 +21,7 @@ public class Main
 		
 		Entrenador E1 = new Entrenador("Ash", 5, pkb);
 		
-		Pokemons [] pok = new Pokemons[4];
+		Pokemon [] pok = new Pokemon[4];
 		pok[0] = new Planta("Bulbasaur"     ,"Planta"     ,1 ,30 ,0 ,100 ,100);
 		pok[1] = new Fuego("Charmander"    	,"Fuego"      ,1 ,40 ,0 ,100 ,100);
 		pok[2] = new Agua("Squirtle"     	,"Agua"       ,1 ,25 ,0 ,100 ,100);
@@ -29,7 +29,7 @@ public class Main
 		
 		////////////////////////////////////////////////////////
 		System.out.println("== Inicio Pokemon en main ==");
-		for (Pokemons n : pok) 	{n.MostrarPokemon();}
+		for (Pokemon n : pok) 	{n.MostrarPokemon();}
 		////////////////////////////////////////////////////////		
 		
 		System.out.println("\n\n== Capturas ==");
@@ -55,11 +55,11 @@ public class Main
 		for (int i = 0; i < pok.length; i++) 
 		{
 			//De esta manera se llama a un método sin necesidad de un objeto, lo que si es que tienes que volver ese método estático
-			Pokemons.Examinar(pok[i]);
+			Pokemon.Examinar(pok[i]);
 		}
 		
 		System.out.println("\n==Resultado tras la batalla==");
-		for (Pokemons n : pok) {System.out.println(n.toString());}
+		for (Pokemon n : pok) {System.out.println(n.toString());}
 		
 		System.out.println("\n==Fin de la simulación==");
 		

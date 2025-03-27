@@ -1,6 +1,6 @@
 package H3;
 
-public class Agua extends Pokemons 
+public class Agua extends Pokemon 
 {
 	private double presionAgua;
 	
@@ -18,7 +18,7 @@ public class Agua extends Pokemons
 	
 	
 	@Override
-	public void atacar(Pokemons pok) 
+	public void atacar(Pokemon pok) 
 	{
 		int daño;
 		

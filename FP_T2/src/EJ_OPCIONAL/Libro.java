@@ -19,9 +19,9 @@ public class Libro extends Biblioteca
 	////////////////////////////////////////
 	
 	////////////////////////////////////////
-	public Libro(int codigo, int año, boolean prestado, String autor) 
+	public Libro(int codigo, int año, String autor) 
 	{
-		super(codigo, año, prestado);
+		super(codigo, año);
 		this.autor = autor;
 	}
 	////////////////////////////////////////

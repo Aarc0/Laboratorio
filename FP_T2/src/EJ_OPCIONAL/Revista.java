@@ -16,9 +16,9 @@ public class Revista extends Biblioteca
 	////////////////////////////////////////
 	
 	////////////////////////////////////////
-	public Revista(int codigo, int año, boolean prestado, int numero) 
+	public Revista(int codigo, int año, int numero) 
 	{
-		super(codigo, año, prestado);
+		super(codigo, año);
 		this.numero = numero;
 	}
 	////////////////////////////////////////

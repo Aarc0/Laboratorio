@@ -39,11 +39,11 @@ public abstract class Biblioteca implements programas
 	}
 	////////////////////////////////////////
 	
-	public Biblioteca(int codigo, int año, boolean prestado) 
+	public Biblioteca(int codigo, int año) 
 	{
 		this.codigo = codigo;
 		this.año = año;
-		this.prestado = prestado;
+		this.prestado = false;
 	}
 	
 }

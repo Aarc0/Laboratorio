@@ -15,8 +15,12 @@ public class Main {
 		catch(ArithmeticException e)
 		{
 			System.err.println("Error: División por 0");
+			//e.printStackTrace();
 		}
-		
+		finally
+		{
+			System.out.println("Finaliza el programa");
+		}
 	}
-
+	
 }

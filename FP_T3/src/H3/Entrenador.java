@@ -2,7 +2,7 @@ package H3;
 
 public class Entrenador 
 {
-	private Pokemons [] poke;
+	private Pokemon [] poke;
 	private Pokeball [] pkb;
 	private int nivel;
 	private String nombre;
@@ -12,19 +12,19 @@ public class Entrenador
 	
 	public Entrenador(String nombre, int nivel, Pokeball[] pkb ) 
 	{
-		this.poke = new Pokemons[6];
+		this.poke = new Pokemon[6];
 		this.pkb = pkb;
 		this.nombre = nombre;
 		this.nivel = nivel;
 	}
 
 	//////////////////////////////////////////
-	public Pokemons[] getPoke() 
+	public Pokemon[] getPoke() 
 	{
 		return poke;
 	}
 
-	public void setPoke(Pokemons poke, int i) 
+	public void setPoke(Pokemon poke, int i) 
 	{
 		this.poke[i] = poke;
 	}
@@ -53,7 +53,7 @@ public class Entrenador
 	}
 	//////////////////////////////////////////
 	
-	public void Captura(Pokemons poke)
+	public void Captura(Pokemon poke)
 	{			
 		//Para saber si fue atrapado o no
 		boolean b;	

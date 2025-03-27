@@ -1,6 +1,6 @@
 package H3;
 
-public abstract class Pokemons implements IFormulasDaño
+public abstract class Pokemon implements IFormulasDaño
 {
 	protected String nombre, tipo;
 	protected int nivel,velocidad,experiencia,salud;
@@ -70,7 +70,7 @@ public abstract class Pokemons implements IFormulasDaño
 		this.salud = salud;
 	}
 	//////////////////////////////////////////
-	public Pokemons(String nombre, String tipo, int nivel, int velocidad, int experiencia, int salud) 
+	public Pokemon(String nombre, String tipo, int nivel, int velocidad, int experiencia, int salud) 
 	{
 		this.nombre = nombre;
 		this.tipo = tipo;
@@ -82,9 +82,9 @@ public abstract class Pokemons implements IFormulasDaño
 	
 	public abstract void MostrarPokemon();
 	
-	public abstract void atacar(Pokemons pok);
+	public abstract void atacar(Pokemon pok);
 	
-	public static void Examinar(Pokemons pok)
+	public static void Examinar(Pokemon pok)
 	{
 		if(pok.getSalud()<=0)
 		{

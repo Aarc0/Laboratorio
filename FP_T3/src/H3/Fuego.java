@@ -1,6 +1,6 @@
 package H3;
 
-public class Fuego extends Pokemons
+public class Fuego extends Pokemon
 {
 	private double temperaturaLlama;
 	
@@ -17,7 +17,7 @@ public class Fuego extends Pokemons
 	}
 	
 	@Override
-	public void atacar(Pokemons pok) 
+	public void atacar(Pokemon pok) 
 	{
 		int daño;
 		

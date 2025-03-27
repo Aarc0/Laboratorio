@@ -21,7 +21,7 @@ public class SuperBall extends Pokeball
 		super(integridad, percent);
 		this.fallo = fallo;
 	}
-	public boolean Captura(Pokemons pok)
+	public boolean Captura(Pokemon pok)
 	{
 		double random = Math.random();
 		boolean b = false;

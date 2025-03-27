@@ -1,6 +1,6 @@
 package H3;
 
-public class Roca extends Pokemons
+public class Roca extends Pokemon
 {
 	private double DensidadRoca;
 	
@@ -28,7 +28,7 @@ public class Roca extends Pokemons
 	}
 
 	@Override
-	public void atacar(Pokemons pok) 
+	public void atacar(Pokemon pok) 
 	{
 		int daño;
 		
