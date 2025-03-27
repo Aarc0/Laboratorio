@@ -7,8 +7,16 @@ public class Main {
 		int a = 10;
 		int b = 0;
 		
+		try 
+		{
+			a = a/b;
+			
+		}
+		catch(ArithmeticException e)
+		{
+			System.err.println("Error: División por 0");
+		}
 		
-
 	}
 
 }
