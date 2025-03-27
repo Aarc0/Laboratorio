@@ -1,6 +1,6 @@
 package EJ_OPCIONAL;
 
-public class Revista extends Biblioteca
+public class Revista extends Publicacion
 {
 	private int numero;
 	////////////////////////////////////////

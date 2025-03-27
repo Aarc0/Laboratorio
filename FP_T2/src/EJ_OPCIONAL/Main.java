@@ -4,7 +4,7 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-		Biblioteca [] pub = new Biblioteca[4];
+		Publicacion [] pub = new Publicacion[4];
 		pub[0] = new Revista(123  ,2001  ,5);
 		pub[1] = new Revista(1234 ,2002  ,6);
 		pub[2] = new Libro(12345  ,2003  ,"Pepe");
@@ -14,18 +14,16 @@ public class Main
 		
 		System.out.println("Los libros disponibles son: \n");
 		
-		for (Biblioteca bib : pub) 
+		for (Publicacion bib : pub) 
 		{
 			bib.prestado();
-		}
-		
+		}	
 		pub[0].prestar();
 	}	
-	
-	public static int publi_prestada(Biblioteca [] pub)
+	public static int publi_prestada(Publicacion [] pub)
 	{
 		int i = 0;
-		for (Biblioteca n: pub) 
+		for (Publicacion n: pub) 
 		{
 			if(n.isPrestado()) i++;
 		}

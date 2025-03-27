@@ -1,6 +1,6 @@
 package EJ_OPCIONAL;
 
-public abstract class Biblioteca implements programas
+public class Publicacion implements programas
 {
 	protected int codigo;
 	protected int año;
@@ -39,11 +39,20 @@ public abstract class Biblioteca implements programas
 	}
 	////////////////////////////////////////
 	
-	public Biblioteca(int codigo, int año) 
+	public Publicacion(int codigo, int año) 
 	{
 		this.codigo = codigo;
 		this.año = año;
 		this.prestado = false;
 	}
+	
+	@Override
+	public void prestar() {}
+	
+	@Override
+	public void devolver() {}
+	
+	@Override
+	public void prestado() {}
 	
 }

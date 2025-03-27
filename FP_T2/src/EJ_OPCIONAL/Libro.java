@@ -1,6 +1,6 @@
 package EJ_OPCIONAL;
 
-public class Libro extends Biblioteca
+public class Libro extends Publicacion
 {
 	private String autor;
 	
