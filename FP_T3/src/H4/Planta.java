@@ -17,11 +17,13 @@ public class Planta extends Pokemon
 	
 
 	@Override
-	public void atacar(Pokemon pok) 
+	public void atacar(Pokemon pok) throws PokemonDebilitadoException 
 	{
 		int daño;
 		
+		if(salud <= 0) throw new PokemonDebilitadoException(this);
 		System.out.println(getNombre()+" ataca a "+pok.getNombre());
+		
 		daño = (int)((getNivel()*FACTOR_NIVEL_PLANTA)+(densidadEsporas*FACTOR_DENSIDAD_ESPORAS));
 		
 		if(pok.getClass().getSimpleName().equals("Agua")|| pok.getClass().getSimpleName().equals("Roca")) 

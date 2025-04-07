@@ -1,13 +1,14 @@
 package H4;
 
-public class EquipoIncorrecto extends Exception 
+public class EquipoIncorrectoException extends Exception 
 {
 	private Equipo equipo;
 	private Entrenador entrenador;
 	
-	public EquipoIncorrecto(Equipo equipo) 
+	public EquipoIncorrectoException(Equipo equipo,Entrenador entrenador) 
 	{
 		this.equipo = equipo;
+		this.entrenador = entrenador;
 	}
 	
 	@Override
@@ -19,7 +20,7 @@ public class EquipoIncorrecto extends Exception
 	
 	public void MostrarError()
 	{
-		System.out.println("ERROR: "+toString());
+		System.err.println("\nERROR: "+toString());
 	}
 	
 }

@@ -41,8 +41,14 @@ public class UltraBall extends Pokeball
 			setPotencia(getPotencia()+0.2);
 			if(getPotencia()==0.4) setPercent(1);
 			System.out.println("La captura de "+pok.getNombre()+" falló");
-		}		
+		}
 		return b;
 	}
+	@Override
+	public String toString()
+	{
+		return "Usando la UltraBall probabilidad de captura: "+ Math.round(this.percent*100)+"% | Integridad: "+integridad+" | Potencia: "+potencia;
+	}
+	
 	
 }

@@ -53,4 +53,10 @@ public class SuperBall extends Pokeball
 		return b;
 	}
 
+	@Override
+	public String toString() 
+	{
+		return "SuperBall probabilidad de captura: "+ Math.round(this.percent*100)+"% | Integridad: "+integridad+" | Rachas: "+fallo;
+	}
+	
 }

@@ -51,7 +51,7 @@ public class Main
 				pok[i].atacar(pok[j]);
 			}
 		}
-		
+
 		for (int i = 0; i < pok.length; i++) 
 		{
 			//De esta manera se llama a un método sin necesidad de un objeto, lo que si es que tienes que volver ese método estático
@@ -62,7 +62,5 @@ public class Main
 		for (Pokemon n : pok) {System.out.println(n.toString());}
 		
 		System.out.println("\n==Fin de la simulación==");
-		
 	}
-
 }

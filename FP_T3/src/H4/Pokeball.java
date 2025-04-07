@@ -53,6 +53,13 @@ public class Pokeball
 			}
 		return b;
 	}
+	@Override
+	public String toString() 
+	{
+		return "Pokeball probabilidad de captura: " + percent+ "%, integridad:" + integridad;
+	}
+	
+	
 	
 }
 

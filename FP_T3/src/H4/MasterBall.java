@@ -29,5 +29,12 @@ public class MasterBall extends Pokeball
 		int salud = pok.getSalud()-(int)daño;
 		pok.setSalud(salud);			
 		return b;
-	}	
+	}
+
+	@Override
+	public String toString() 
+	{
+		return "MasterBall probabilidad de captura: "+(percent*100)+"% | estabilidad: "+estabilidad;
+	}
+	
 }

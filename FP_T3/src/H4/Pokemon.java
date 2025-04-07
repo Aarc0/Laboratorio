@@ -4,6 +4,7 @@ public abstract class Pokemon implements IFormulasDaño
 {
 	protected String nombre, tipo;
 	protected int nivel,velocidad,experiencia,salud;
+	protected Entrenador entrenador;
 	
 	//////////////////////////////////////////
 	public String getNombre() 
@@ -17,10 +18,22 @@ public abstract class Pokemon implements IFormulasDaño
 	//////////////////////////////////////////
 	
 	//////////////////////////////////////////
+	public Entrenador getEntrenador() 
+	{
+		return entrenador;
+	}
+	public void setEntrenador(Entrenador entrenador) 
+	{
+		this.entrenador = entrenador;
+	}
+	//////////////////////////////////////////
+	
+	//////////////////////////////////////////
 	public String getTipo() 
 	{
 		return tipo;
 	}
+
 	public void setTipo(String tipo) 
 	{
 		this.tipo = tipo;
@@ -78,10 +91,15 @@ public abstract class Pokemon implements IFormulasDaño
 		this.velocidad = velocidad;
 		this.experiencia = experiencia;
 		this.salud = salud;
+		this.entrenador	= entrenador;
 	}
 	
 	public abstract void MostrarPokemon();
 	
-	public abstract void atacar(Pokemon pok);
+	public abstract void atacar(Pokemon pok) throws PokemonDebilitadoException;
 	
+	public void VolverAlEntrenador()
+	{
+		entrenador.setPoke(this);
+	}
 }

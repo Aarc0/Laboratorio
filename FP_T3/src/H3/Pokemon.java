@@ -82,7 +82,7 @@ public abstract class Pokemon implements IFormulasDaño
 	
 	public abstract void MostrarPokemon();
 	
-	public abstract void atacar(Pokemon pok);
+	public abstract void atacar(Pokemon pok); 
 	
 	public static void Examinar(Pokemon pok)
 	{

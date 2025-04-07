@@ -28,11 +28,13 @@ public class Roca extends Pokemon
 	}
 
 	@Override
-	public void atacar(Pokemon pok) 
+	public void atacar(Pokemon pok) throws PokemonDebilitadoException 
 	{
 		int daño;
 		
+		if(salud <= 0) throw new PokemonDebilitadoException(this);
 		System.out.println(getNombre()+" ataca a "+pok.getNombre());
+		
 		daño = (int)((getNivel()*FACTOR_NIVEL_ROCA)+(DensidadRoca*FACTOR_TAMAÑO_ROCA));
 		
 		if(pok.getClass().getSimpleName().equals("Fuego")) 

@@ -1,12 +1,12 @@
 package H4;
 
 //Se lanza cuando se intenta usar un Pokemon con salud 0 para atacar
-public class PokemonDebilitado extends Exception
+public class PokemonDebilitadoException extends Exception
 {
 	
 	private Pokemon pokemon;
 	
-	public PokemonDebilitado(Pokemon pokemon)
+	public PokemonDebilitadoException(Pokemon pokemon)
 	{
 		this.pokemon = pokemon;
 	}
@@ -14,13 +14,11 @@ public class PokemonDebilitado extends Exception
 	@Override
 	public String toString() 
 	{
-		return pokemon.getNombre() + "está debilitado y no puede atacar porque es tremendo mariconazo";
+		return pokemon.getNombre() + " está debilitado y no puede atacar\n";
 	}
 	
 	public void MostrarError()
 	{
-		System.out.println("ERROR: "+toString());
+		System.err.println("¡Combate finalizado! "+toString());
 	}
-	
-	
 }
