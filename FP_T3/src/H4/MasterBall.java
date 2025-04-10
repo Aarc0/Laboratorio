@@ -19,7 +19,7 @@ public class MasterBall extends Pokeball
 	{
 		this.estabilidad = estabilidad;
 	}
-	public boolean Captura(Pokemon pok)
+	public boolean captura(Pokemon pok)
 	{
 		System.out.println("Usando la "+this.getClass().getSimpleName()+" probabilida de captura: "+ Math.round(this.percent*100)+"% | Estabilidad: "+this.estabilidad);
 		System.out.println("¡Captura exitosa! "+pok.getNombre()+" ahora es tuyo");

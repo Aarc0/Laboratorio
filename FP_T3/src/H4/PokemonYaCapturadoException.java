@@ -14,7 +14,7 @@ public class PokemonYaCapturadoException extends Exception
 		return "El pokemon "+pok.getNombre()+" ya pertenece al entrenador "+pok.getEntrenador().getNombre()+" y no puede ser capturado";
 	}
  
-	public void MostrarError()
+	public void mostrarError()
 	{
 		System.err.println("ERROR: "+toString());
 	}

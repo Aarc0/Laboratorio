@@ -44,7 +44,7 @@ public class Agua extends Pokemon
 	}
 
 	@Override
-	public void MostrarPokemon() 
+	public void mostrarPokemon() 
 	{
 		System.out.println("Nombre: "+getNombre()+" Tipo: "+getTipo()+" Nivel: "+getNivel()+" Velocidad: "+getVelocidad()+" Experiencia: "+getExperiencia()+" Salud: "+getSalud()+" Presión del agua: "+getPresionAgua()+" bares");
 	}

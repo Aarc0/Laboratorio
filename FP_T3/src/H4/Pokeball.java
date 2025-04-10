@@ -33,7 +33,7 @@ public class Pokeball
 		this.integridad = integridad;
 		this.percent = percent;
 	}
-	public boolean Captura(Pokemon pok)
+	public boolean captura(Pokemon pok)
 	{
 		double random = Math.random();
 		boolean b = false;
