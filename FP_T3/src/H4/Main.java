@@ -40,7 +40,7 @@ public class Main
 		///////////////////////////////////////////////////
 		System.out.println("\n== Capturando 6 Pokemon de agua para Misty ==");
 
-		for (int i = 0; i < pok.length-1; i++) 
+		for (int i = 0; i < pok.length-3; i++) 
 		{
 			E1.Captura(pok[i]);
 		}

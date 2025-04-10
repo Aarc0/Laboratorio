@@ -131,7 +131,7 @@ public class Entrenador
 			System.out.println((i+1)+". Nombre: "+poke.get(i).getNombre()+" Tipo: "+poke.get(i).getTipo()+" Nivel: "+poke.get(i).getNivel()+" Velocidad: "+poke.get(i).getVelocidad()+" Experiencia: "+poke.get(i).getExperiencia()+" Salud: "+poke.get(i).getSalud());
 		}
 	}
-	
+
 	public void DejarPokemon(Gimnasio gym)
 	{
 		try
