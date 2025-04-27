@@ -17,7 +17,7 @@ public class EquipoCompletoException extends Exception
 		return "EXCEPCIÓN: No se pudo agregar a "+this.pokemon.getNombre()+" porque el equipo del entrenador "+nombreE+" está completo";
 	}
 	
-	public void MostrarError()
+	public void mostrarError()
 	{
 		System.err.println(toString());
 	}

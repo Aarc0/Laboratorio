@@ -18,7 +18,7 @@ public class EquipoIncorrectoException extends Exception
 		       +" no puede dejar Pokémon en el gimnasio controlado por el equipo "+equipo;
 	}
 	
-	public void MostrarError()
+	public void mostrarError()
 	{
 		System.err.println("\nERROR: "+toString());
 	}

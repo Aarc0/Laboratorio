@@ -7,7 +7,7 @@ public class GimnasioPlenoException extends Exception
 		return "\nERROR: El gimnasio ya tiene el máximo de defensores. No se pueden añadir más pokemon";
 	}
 	
-	public void MostrarError()
+	public void mostrarError()
 	{
 		System.err.println(toString());
 	}

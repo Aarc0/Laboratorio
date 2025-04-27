@@ -33,10 +33,10 @@ public class Entrenador
 		catch(EquipoCompletoException e)
 		{
 			poke.setEntrenador(null);
-			e.MostrarError();
+			e.mostrarError();
 		}
 	}
-	public void RemoverPokemon(Pokemon poke)
+	public void removerPokemon(Pokemon poke)
 	{
 		this.poke.remove(poke);
 	}
@@ -75,7 +75,7 @@ public class Entrenador
 	}
 	//////////////////////////////////////////
 	
-	public void Captura(Pokemon poke)
+	public void captura(Pokemon poke)
 	{			
 		//Para saber si fue atrapado o no
 		boolean b;	
@@ -96,7 +96,7 @@ public class Entrenador
 				{
 					//Si atrapa al pokemon "b" se hace verdadero
 					//Llama al método de la pokeball "Captura" y le paso como parametro un solo pokemon 
-					b = pkb[i].Captura(poke);
+					b = pkb[i].captura(poke);
 					if(b)
 					{
 						setPoke(poke);
@@ -116,14 +116,14 @@ public class Entrenador
 		}
 		catch(EquipoCompletoException e) 
 		{
-			e.MostrarError();
+			e.mostrarError();
 		} catch (PokemonYaCapturadoException e) 
 		{
-			e.MostrarError();
+			e.mostrarError();
 		}
 	}
 
-	public void MostrarPoks()
+	public void mostrarPoks()
 	{
 		System.out.println("\nEl entrenador "+getNombre()+" tiene los siguientes pokemon:");
 		for (int i = 0; i < poke.size(); i++) 
@@ -131,8 +131,8 @@ public class Entrenador
 			System.out.println((i+1)+". Nombre: "+poke.get(i).getNombre()+" Tipo: "+poke.get(i).getTipo()+" Nivel: "+poke.get(i).getNivel()+" Velocidad: "+poke.get(i).getVelocidad()+" Experiencia: "+poke.get(i).getExperiencia()+" Salud: "+poke.get(i).getSalud());
 		}
 	}
-	
-	public void DejarPokemon(Gimnasio gym)
+
+	public void dejarPokemon(Gimnasio gym)
 	{
 		try
 		{
@@ -142,20 +142,20 @@ public class Entrenador
 			//Si no son las condiciones anteriores dejo el pokemon y además seteo el equipo del gimnasio
 			else
 			{
-				gym.AñadirPokemon(this);
+				gym.añadirPokemon(this);
 				gym.setEquipo(equipo);
 			}
 		}
 		catch(EquipoIncorrectoException e)
 		{
-			e.MostrarError();
+			e.mostrarError();
 		}
 		catch(GimnasioPlenoException e)
 		{
-			e.MostrarError();
+			e.mostrarError();
 		}
 	}
-	public void AtacarGimnasio(Gimnasio gym)
+	public void atacarGimnasio(Gimnasio gym)
 	{
 		Pokemon [] atacantes = new Pokemon[3];
 		System.out.println("\n"+nombre+" ("+equipo+") atacará al gimnasio del equipo "+gym.getEquipo()+"\n");
@@ -171,12 +171,12 @@ public class Entrenador
 			
 			for (int i = 0; i < atacantes.length; i++) 
 			{
-				gym.Combates(atacantes[i]);
+				gym.combates(atacantes[i]);
 			}
 			gym.setEquipo(equipo);
 		}catch(PokemonNoDisponibleException e)
 		{
-			e.MostrarE2();
+			e.mostrarE2();
 		}
 	}
 

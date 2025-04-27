@@ -91,14 +91,13 @@ public abstract class Pokemon implements IFormulasDaño
 		this.velocidad = velocidad;
 		this.experiencia = experiencia;
 		this.salud = salud;
-		this.entrenador	= entrenador;
 	}
 	
-	public abstract void MostrarPokemon();
+	public abstract void mostrarPokemon();
 	
 	public abstract void atacar(Pokemon pok) throws PokemonDebilitadoException;
 	
-	public void VolverAlEntrenador()
+	public void volverAlEntrenador()
 	{
 		entrenador.setPoke(this);
 	}

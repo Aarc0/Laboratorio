@@ -17,7 +17,7 @@ public class PokemonDebilitadoException extends Exception
 		return pokemon.getNombre() + " está debilitado y no puede atacar\n";
 	}
 	
-	public void MostrarError()
+	public void mostrarError()
 	{
 		System.err.println("¡Combate finalizado! "+toString());
 	}

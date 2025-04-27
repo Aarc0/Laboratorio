@@ -20,7 +20,7 @@ public class UltraBall extends Pokeball
 		super(integridad,percent);
 		this.potencia = potencia;
 	}
-	public boolean Captura(Pokemon pok)
+	public boolean captura(Pokemon pok)
 	{
 		double random = Math.random();
 		boolean b = false;

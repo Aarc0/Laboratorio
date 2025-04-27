@@ -36,21 +36,21 @@ public class Main
 		pok[8] = new Agua("Golduck"		,"Agua"		  ,101 		,101		,101 	,101 		,101);	
 		
 		  ///////////////////////////////////////////////////
-		 ///   INICIALIZACIÓN DE CAPTURA DE POKEMON 	  //
+		 ///   INICIALIZACIÓN DE CAPTURA DE POKEMON 	 ///
 		///////////////////////////////////////////////////
 		System.out.println("\n== Capturando 6 Pokemon de agua para Misty ==");
 
-		for (int i = 0; i < pok.length-1; i++) 
+		for (int i = 0; i < pok.length-3; i++) 
 		{
-			E1.Captura(pok[i]);
+			E1.captura(pok[i]);
 		}
 		
 		System.out.print("\n=== Pokemon capturados por Misty ===");
-		E1.MostrarPoks();
+		E1.mostrarPoks();
 
 
 		System.out.println("\n=== DEMOSTRACIÓN de EquipoCompletoException ==="+"\nIntentando capturar un séptimo Pokemon para Misty...");
-		E1.Captura(pok[6]);	
+		E1.captura(pok[6]);	
 
 		  ///////////////////////////////////////////////////
 		 ////   INICIALIZACIÓN DE PRIMER GIMNASIO       ////
@@ -60,7 +60,7 @@ public class Main
 		System.out.println(gym1.toString());
 
 		System.out.println("\n=== Dejando 3 Pokemon de Misty en el gimnasio===");
-		E1.DejarPokemon(gym1);
+		E1.dejarPokemon(gym1);
 		
 		//DEJO 3 POKEMON PARA PROBAR QUE NO DEVUELVA LOS POKEMON AL ENTRENADOR SI YA ESTE NO TIENE ESPACIO
 		System.out.println("\n===AÑADO 3 POKEMON NUEVOS AL EQUIPO DE MISTY PARA PROBAR LUEGO EL DEVOLVER LOS POKEMON QUE DEJÓ EN EL GIMNASIO===\n");
@@ -68,7 +68,7 @@ public class Main
 		E1.setPoke(pok[7]);
 		E1.setPoke(pok[8]);
 		
-		gym1.EstadoGimnasio();
+		gym1.estadoGimnasio();
 		
 		
 		  ///////////////////////////////////////////////////////////////////
@@ -96,7 +96,7 @@ public class Main
 
 
 		System.out.println("\n===PRUEBO LA EXCEPCIÓN DE POKEMON YA CAPTURADO===");
-		E2.Captura(pok[3]);
+		E2.captura(pok[3]);
 		
 		Pokemon [] pok2 = new Pokemon[3];
 		//			   	 NOMBRE POKEMON       TIPO        NIVEL  VELOCIDAD      EXP     SALUD	 TEMPERATURA LLAMA
@@ -112,15 +112,15 @@ public class Main
 
 		for (int i = 0; i < pok2.length; i++) 
 		{
-			E2.Captura(pok2[i]);
+			E2.captura(pok2[i]);
 		}
 
 		System.out.print("\n=== Pokemon capturados por Lance ===");
-		E2.MostrarPoks();
+		E2.mostrarPoks();
 		
 		System.out.println("\n===DEMOSTRACIÓN de GIMNASIOPLENOEXCEPTION===");
 		System.out.print("Intentado que Lance deje un Pokémon en el gimnasio ya lleno...");
-		E2.DejarPokemon(gym1);
+		E2.dejarPokemon(gym1);
 		
 		  ///////////////////////////////////////////////////////////////////
 		 ///////                TERCER ENTRENADOR				////////////
@@ -137,7 +137,7 @@ public class Main
 		  ///////////////////////////////////////////////////////////////////
 		 ///////                ENTRENADORA ERIKA				////////////
 		///////////////////////////////////////////////////////////////////
-		
+
 		
 		Entrenador E3 = new Entrenador("Erika", 20, pkb3,Equipo.Azul);
 		System.out.println("\n=== Creando tercer entrenador ("+E3.getEquipo()+") ===");
@@ -156,28 +156,28 @@ public class Main
 
 		for (int i = 0; i < pok3.length; i++) 
 		{
-			E3.Captura(pok3[i]);
+			E3.captura(pok3[i]);
 		}
 
 		System.out.print("\n=== Pokemon capturados por Erika ===");
-		E3.MostrarPoks();
+		E3.mostrarPoks();
 		
 		System.out.println("\n===DEMOSTRACIÓN de EQUIPOINCORRECTOEXCEPTION===");
 		System.out.print("Intentado que Erika deje un Pokémon en el gimnasio ya lleno...");
-		E3.DejarPokemon(gym1);
+		E3.dejarPokemon(gym1);
 		
 		System.out.println("\n== DEMOSTRACIÓN DE PokemonDebilitadoException (implícita en los combates) ==");
 		
 		System.out.println("\n===Estado del gimnasio antes del ataque===");
-		gym1.EstadoGimnasio();
+		gym1.estadoGimnasio();
 		
-		E3.AtacarGimnasio(gym1);
+		E3.atacarGimnasio(gym1);
 		
-		gym1.EstadoGimnasio();
+		gym1.estadoGimnasio();
 		
-		E3.DejarPokemon(gym1);
+		E3.dejarPokemon(gym1);
 		
-		gym1.EstadoGimnasio();
+		gym1.estadoGimnasio();
 		
 		  ///////////////////////////////////////////////////////////////////
 		 ///////                CUARTO ENTRENADOR				////////////
@@ -210,13 +210,13 @@ public class Main
 
 		for (int i = 0; i < pok4.length; i++) 
 		{
-			E4.Captura(pok4[i]);
+			E4.captura(pok4[i]);
 		}
 
 		System.out.print("\n=== Pokemon capturados por Blaine ===");
-		E4.MostrarPoks();
+		E4.mostrarPoks();
 		
-		E4.AtacarGimnasio(gym1);		
+		E4.atacarGimnasio(gym1);		
 		
 		System.out.println("=== FINALIZACIÓN DEL MUNDO POKEMON ===");
 

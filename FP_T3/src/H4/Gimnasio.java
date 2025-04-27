@@ -50,7 +50,7 @@ public class Gimnasio
 	}
 	
 	
-	public void AñadirPokemon(Entrenador E)throws GimnasioPlenoException
+	public void añadirPokemon(Entrenador E)throws GimnasioPlenoException
 	{
 		//Variable que uso para ir cambiando los pokemons del entrenador y el numero de pokemon que ha dejado
 		int x = 0;
@@ -63,16 +63,16 @@ public class Gimnasio
 				throw new GimnasioPlenoException();
 			}
 			else
-			{
+			{ 
 				System.out.println(E.getNombre()+" dejó su "+Contador.values()[x]+" Pokemon en el gimnasio de "+nombreG);
 				defensores.add(E.getPoke(0));
-				E.RemoverPokemon(E.getPoke(0));
+				E.removerPokemon(E.getPoke(0));
 				x++;
 			}
 		}
 	}
 	
-	public void Combates(Pokemon atacante)
+	public void combates(Pokemon atacante)
 	{
 		boolean b = true;
 		
@@ -95,10 +95,10 @@ public class Gimnasio
 		}
 		catch(PokemonDebilitadoException e)
 		{
-			e.MostrarError();
+			e.mostrarError();
 			if(defensores.get(i).getSalud()<=0) 
 			{
-				defensores.get(i).VolverAlEntrenador();
+				defensores.get(i).volverAlEntrenador();
 				defensores.remove(i);
 			}
 		}
@@ -110,7 +110,7 @@ public class Gimnasio
 		return "Gimnasio de " + nombreG + ", equipo: " + equipo;
 	}
 	
-	public void EstadoGimnasio()
+	public void estadoGimnasio()
 	{
 		System.out.println("\n===Estado actual del gimnasio ===");
 		System.out.println("\nGimnasio:"+nombreG

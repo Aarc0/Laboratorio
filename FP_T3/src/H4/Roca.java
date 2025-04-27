@@ -16,7 +16,7 @@ public class Roca extends Pokemon
 	}
 
 	@Override
-	public void MostrarPokemon() 
+	public void mostrarPokemon() 
 	{
 		System.out.println("Nombre: "+getNombre()+" Tipo: "+getTipo()+" Nivel: "+getNivel()+" Velocidad: "+getVelocidad()+" Experiencia: "+getExperiencia()+" Salud: "+getSalud()+" Tamaño Roca: "+getRoca()+" Cm^3");
 	}
@@ -33,6 +33,7 @@ public class Roca extends Pokemon
 		int daño;
 		
 		if(salud <= 0) throw new PokemonDebilitadoException(this);
+		
 		System.out.println(getNombre()+" ataca a "+pok.getNombre());
 		
 		daño = (int)((getNivel()*FACTOR_NIVEL_ROCA)+(DensidadRoca*FACTOR_TAMAÑO_ROCA));
