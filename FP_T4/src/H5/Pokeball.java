@@ -1,15 +1,11 @@
-package H4;
+package H5;
 
 public class Pokeball
 {
 	protected int integridad;
 	protected double percent;
 	
-	public Pokeball(int integridad, double percent)
-	{
-		this.integridad = integridad;
-		this.percent = 0.1;
-	}
+	
 	//////////////////////////////////////////////
 	public int getIntegridad() 
 	{
@@ -32,7 +28,11 @@ public class Pokeball
 	}
 	//////////////////////////////////////////////
 
-	
+	public Pokeball(int integridad)
+	{
+		this.integridad = integridad;
+		this.percent = 0.1;
+	}
 	public boolean captura(Pokemon pok)
 	{
 		double random = Math.random();

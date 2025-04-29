@@ -1,0 +1,17 @@
+Squirtle Agua 12 35 0 100 95
+Charmander Fuego 11 38 0 95 850
+Bulbasaur Planta 10 30 0 90 7
+Vaporeon Agua 15 40 0 120 105
+Flareon Fuego 14 42 0 110 950
+Venusaur Planta 16 45 0 130 9
+Blastoise Agua 18 50 0 150 120
+Charizard Fuego 19 55 0 140 1100
+Meganium Planta 17 48 0 135 12
+Suicune Agua 20 60 0 160 130
+Entei Fuego 21 65 0 165 1200
+Celebi Planta 19 58 0 155 15
+Poliwrath Agua 14 38 0 115 90
+Ninetales Fuego 13 36 0 105 800
+Victreebel Planta 12 34 0 100 8
+Psyduck Agua 8 28 0 80 82
+Magikarp Agua 5 30 0 60 18
