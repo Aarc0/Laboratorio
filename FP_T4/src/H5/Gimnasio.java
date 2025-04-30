@@ -52,7 +52,7 @@ public class Gimnasio
 	
 	public void añadirPokemon(Entrenador E)throws GimnasioPlenoException
 	{
-		//Variable que uso para ir cambiando los pokemons del entrenador y el numero de pokemon que ha dejado
+		//Variable que uso para ir cambiando el numero de pokemon que ha dejado
 		int x = 0;
 		
 		while(x<3)

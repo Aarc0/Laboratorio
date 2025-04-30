@@ -1,10 +1,10 @@
 package H5;
 
-public class Agua extends Pokemon 
+public class PokemonAgua extends Pokemon 
 {
 	private double presionAgua;
 	
-	public Agua(String nombre, String tipo, int nivel, int velocidad, int experiencia, int salud, double presionAgua) 
+	public PokemonAgua(String nombre, String tipo, int nivel, int velocidad, int experiencia, int salud, double presionAgua) 
 	{
 		super(nombre, tipo, nivel, velocidad, experiencia, salud);
 		this.presionAgua = presionAgua;
@@ -26,7 +26,7 @@ public class Agua extends Pokemon
 		
 		daño = (int)((getNivel()*FACTOR_NIVEL_AGUA)+(presionAgua*FACTOR_PRESION_AGUA));
 		
-		if((pok.getClass().getSimpleName().equals("Fuego")) || (pok.getClass().getSimpleName().equals("Roca"))) 
+		if((pok.getClass().getSimpleName().equals("PokemonFuego")) || (pok.getClass().getSimpleName().equals("PokemonRoca"))) 
 		{
 			System.out.println("¡Es super efectivo!");
 			daño *= MULTIPLICADOR_VENTAJA;

@@ -63,7 +63,7 @@ public class Entrenador
 		this.nombre = nombre;
 	}
 	//////////////////////////////////////////
-
+	
 	//////////////////////////////////////////
 	public Equipo getEquipo() 
 	{
@@ -80,7 +80,7 @@ public class Entrenador
 		//Para saber si fue atrapado o no
 		boolean b;	
 		int i;
-	
+
 		//Busca la pokeball con integridad mayor que 0
 		for(i = 0;i<pkb.length;i++)
 		{
@@ -88,6 +88,7 @@ public class Entrenador
 		}
 		try 
 		{
+			System.out.println("\nEntrenador que está realizando la captura:"+nombre);
 			//Condición que pongo para que el código se ejecute mientras el equipo no esté lleno
 			if(this.poke.size()<6) 
 			{
@@ -103,6 +104,7 @@ public class Entrenador
 						//De esta manera asocio solo los pokemons que el entrenador atrape al entrenador
 						poke.setEntrenador(this);
 					}
+					else return;
 				}
 			}
 			//Esta excepción se lanza cuando un entrenador intenta capturar más pokemon de los que puede
@@ -112,15 +114,15 @@ public class Entrenador
 				throw new EquipoCompletoException(poke,nombre);
 			}
 			//Pasamos el pokemon en específico y le pasamos al entrenador completo aunque en realidad podríamos pasarle solo el nombre del entrenador
-			
 		}
 		catch(EquipoCompletoException e) 
 		{
 			e.mostrarError();
-		} catch (PokemonYaCapturadoException e) 
+		} 
+		catch (PokemonYaCapturadoException e) 
 		{
 			e.mostrarError();
-		}
+		} 
 	}
 
 	public void mostrarPoks()

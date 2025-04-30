@@ -1,11 +1,11 @@
 package H5;
 
-public class Fuego extends Pokemon
+public class PokemonFuego extends Pokemon
 {
 	private double temperaturaLlama;
 	
 	
-	public Fuego(String nombre, String tipo, int nivel, int velocidad, int experiencia, int salud, double temperaturaLlama) 
+	public PokemonFuego(String nombre, String tipo, int nivel, int velocidad, int experiencia, int salud, double temperaturaLlama) 
 	{
 		super(nombre, tipo, nivel, velocidad, experiencia, salud);
 		this.temperaturaLlama = temperaturaLlama;
@@ -26,7 +26,7 @@ public class Fuego extends Pokemon
 		
 		daño = (int)((getNivel()*FACTOR_NIVEL_FUEGO)+(temperaturaLlama*FACTOR_TEMPERATURA_LLAMA));
 		
-		if(pok.getClass().getSimpleName().equals("Planta")) 
+		if(pok.getClass().getSimpleName().equals("PokemonPlanta")) 
 		{
 			System.out.println("¡Es super efectivo!");
 			daño *= MULTIPLICADOR_VENTAJA;

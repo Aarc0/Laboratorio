@@ -56,7 +56,7 @@ public class Pokeball
 	@Override
 	public String toString() 
 	{
-		return "Pokeball probabilidad de captura: " + percent+ "%, integridad:" + integridad;
+		return "Pokeball probabilidad de captura: " + (percent*100)+ "%, integridad:" + integridad;
 	}
 	
 	

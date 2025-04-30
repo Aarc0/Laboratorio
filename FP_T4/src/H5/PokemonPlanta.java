@@ -1,10 +1,10 @@
 package H5;
 
-public class Planta extends Pokemon 
+public class PokemonPlanta extends Pokemon 
 {
 	private double densidadEsporas;
 	
-	public Planta(String nombre, String tipo, int nivel, int velocidad, int experiencia, int salud, double densidadEsporas) 
+	public PokemonPlanta(String nombre, String tipo, int nivel, int velocidad, int experiencia, int salud, double densidadEsporas) 
 	{
 		super(nombre, tipo, nivel, velocidad, experiencia, salud);
 		this.densidadEsporas = densidadEsporas;
@@ -26,7 +26,7 @@ public class Planta extends Pokemon
 		
 		daño = (int)((getNivel()*FACTOR_NIVEL_PLANTA)+(densidadEsporas*FACTOR_DENSIDAD_ESPORAS));
 		
-		if(pok.getClass().getSimpleName().equals("Agua")|| pok.getClass().getSimpleName().equals("Roca")) 
+		if(pok.getClass().getSimpleName().equals("PokemonAgua")|| pok.getClass().getSimpleName().equals("PokemonRoca")) 
 		{
 			System.out.println("¡Es super efectivo!");
 			daño *= MULTIPLICADOR_VENTAJA;
