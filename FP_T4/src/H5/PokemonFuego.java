@@ -53,6 +53,6 @@ public class PokemonFuego extends Pokemon
 	@Override
 	public String toString() 
 	{
-		return " Nombre: "+getNombre() +" Nivel: "+getNivel()+" Velocidad: "+getVelocidad()+" Experiencia "+getExperiencia()+" Salud: "+getSalud()+" Temperatura de la llama: "+getTemperaturaLlama();
+		return " Nombre: "+getNombre() +" Nivel: "+getNivel()+" Velocidad: "+getVelocidad()+" Experiencia "+getExperiencia()+" Salud: "+getSalud()+" Temperatura de la llama: "+getTemperaturaLlama()+"ºC";
 	}
 }

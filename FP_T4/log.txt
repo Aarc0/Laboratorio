@@ -1,0 +1,13 @@
+
+[ATAQUE] Misty (Equipo Amarillo) vs Ciudad A
+Combate 1: Vaporeon vs Blastoise - Ganador: Blastoise
+Combate 2: Flareon vs Blastoise - Ganador: Flareon
+Combate 3: Flareon vs Charizard - Ganador: Charizard
+Combate 4: Venusaur vs Charizard - Ganador: Charizard
+Resultado final: No conquistado
+
+[ATAQUE] Misty (Equipo Amarillo) vs Ciudad B
+Combate 1: Suicune vs Squirtle - Ganador: Suicune
+Combate 2: Suicune vs Charmander - Ganador: Suicune
+Combate 3: Suicune vs Bulbasaur - Ganador: Suicune
+Resultado final: Conquistado

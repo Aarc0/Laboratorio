@@ -1,11 +1,12 @@
 package H5;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Entrenador 
 {
 	private ArrayList<Pokemon> poke = new ArrayList();
-	private Pokeball [] pkb = new Pokeball[10];
+	private Pokeball [] pkb;
 	private int nivel;
 	private Nombre nombre;
 	private Equipo equipo;
@@ -22,6 +23,10 @@ public class Entrenador
 	public Pokemon getPoke(int i) 
 	{
 		return poke.get(i);
+	}
+	public int sizeEquipo()
+	{
+		return poke.size();
 	}
 	public void setPoke(Pokemon poke) 
 	{
@@ -43,9 +48,9 @@ public class Entrenador
 	//////////////////////////////////////////
 
 	//////////////////////////////////////////
-	public Pokeball[] getPkb() 
+	public Pokeball getPkb(int i) 
 	{
-		return pkb;
+		return pkb[i];
 	}
 	public void setPkb(Pokeball[] pkb) 
 	{
@@ -78,16 +83,15 @@ public class Entrenador
 	public void captura(Pokemon poke)
 	{			
 		//Para saber si fue atrapado o no
-		boolean b;	
+		boolean b = false;	
 		int i;
-
-		//Busca la pokeball con integridad mayor que 0
 		for(i = 0;i<pkb.length;i++)
 		{
-			if(pkb[i].getIntegridad()>0) break;
+			if(pkb[i].getIntegridad()>0 || i ==9) break;
 		}
 		try 
 		{
+			//Busca la pokeball con integridad mayor que 0
 			System.out.println("\nEntrenador que está realizando la captura:"+nombre);
 			//Condición que pongo para que el código se ejecute mientras el equipo no esté lleno
 			if(this.poke.size()<6) 
@@ -97,7 +101,7 @@ public class Entrenador
 				{
 					//Si atrapa al pokemon "b" se hace verdadero
 					//Llama al método de la pokeball "Captura" y le paso como parametro un solo pokemon 
-					b = pkb[i].captura(poke);
+					if(pkb[i].getIntegridad()>0) b = pkb[i].captura(poke);
 					if(b)
 					{
 						setPoke(poke);
@@ -123,6 +127,7 @@ public class Entrenador
 		{
 			e.mostrarError();
 		} 
+
 	}
 
 	public void mostrarPoks()
@@ -138,14 +143,16 @@ public class Entrenador
 	{
 		try
 		{
-			//Si el equipo es distinto y además el gimnasio no es nulo lanzo la excepsión
-			if(gym.getEquipo() != equipo && gym.getEquipo() != Equipo.Neutral) throw new EquipoIncorrectoException(gym.getEquipo(),this);
 			
-			//Si no son las condiciones anteriores dejo el pokemon y además seteo el equipo del gimnasio
-			else
+			if(gym.getEquipo()==Equipo.Neutral || gym.getEquipo() == equipo)
 			{
 				gym.añadirPokemon(this);
 				gym.setEquipo(equipo);
+			}
+			
+			else if(gym.getEquipo() != equipo && gym.getEquipo() != Equipo.Neutral) 
+			{
+				throw new EquipoIncorrectoException(gym.getEquipo(),this);
 			}
 		}
 		catch(EquipoIncorrectoException e)
@@ -157,29 +164,108 @@ public class Entrenador
 			e.mostrarError();
 		}
 	}
-	public void atacarGimnasio(Gimnasio gym)
-	{
+	public void atacarGimnasio(Gimnasio gym,PrintWriter salida)
+	{	
+		boolean b = true;
+		
+		//Esta variable me ayuda a determina si el entrenador tiene todos sus pokemon sin salud
+		int y = 0;
+		/*
+		 * Un entrenador envía sus 3 primero pokemon a atacar para ello hice un equipo separado de atacantes
+		 * luego estos atacantes tienen vida, con esta variable determino si todos esos atacantes tiene vida o no
+		 * para ello cada vez evalúa a un pokemon diferente y observa si tiene vida o no
+		 * Si esta variable alcanza el numero de atacantes (2) (empezando desde 0) significa que no tengo atacantes con vida 
+		 * y por lo tanto que no conquisté el gimnasio
+		 */
+		
+		//Esta variable me ayuda a contar cuantos pokemon tengo en el equipo que no tengan salud
+		int j = 0;
+		
+		//Me sirve para ir iterando entre los distintos pokemon que van a atacar
+		int count = 0;
+		
+		int combates = 1;
 		Pokemon [] atacantes = new Pokemon[3];
-		System.out.println("\n"+nombre+" ("+equipo+") atacará al gimnasio del equipo "+gym.getEquipo()+"\n");
+		System.out.println(nombre+" ("+equipo+") atacará al gimnasio del equipo "+gym.getEquipo()+"\n");
 		try 
 		{
+			salida.println("\n"+"[ATAQUE] "+nombre +" (Equipo "+equipo+") vs "+gym.getNombreG());
+
 			//Compruebo que el entrenador tiene los pokemon suficientes para atacar al gimnasio (3)
-			for (int i = 0; i < 3; i++) 
+			if(poke.size() < 3) 
 			{
-				//Si no tiene suficientes pokemon, lanzo una excepción informandole de que no hay suficientes pokemon
-				if(poke.size() < 3) throw new PokemonNoDisponibleException(poke);
-				else atacantes[i] = poke.get(i);
+				if(atacantes[2]== null) salida.println("El entrenador no cuenta con suficientes pokemon para realizar el ataque");
+			}
+			if(poke.size() < 3) 
+			{
+				throw new PokemonNoDisponibleException(poke);				
 			}
 			
+			//Primero queremos que recorra TODO el array de pokeballs
+			//Luego queremos que en si los atacantes están completos se salga del bucle
+			//queremos además que siempre empiece a rellenar los atacantes desde el indice 0 
+			for (int i = 0; i < poke.size() && b; i++) 
+			{				
+				//Si entra aquí
+				if(atacantes[2] != null) b = false;
+				//No entra aquí
+				else if(poke.get(i).getSalud()>0) 
+				{
+					atacantes[count] = poke.get(i);
+					count++;
+				}
+				
+				if(poke.get(i).getSalud()<=0) j++;
+			}
+			
+			
+			if(atacantes[2]== null) salida.println("El entrenador no cuenta con suficientes pokemon para realizar el ataque");
+			
+			
+			if(j==poke.size() || atacantes[2]==null)
+			{
+				salida.close();
+				throw new PokemonNoDisponibleException(gym);
+			}
+			
+			//la logica como tal de los combates es que si tengo un pokemon con vida ese sea el que vaya a atacar
 			for (int i = 0; i < atacantes.length; i++) 
 			{
-				gym.combates(atacantes[i]);
+				while(atacantes[i].getSalud()>0)
+				{
+					gym.combates(atacantes[i],salida,combates);
+					combates++;			
+				}
+				if(atacantes[i].getSalud()<=0) y++;
 			}
-			gym.setEquipo(equipo);
-		}catch(PokemonNoDisponibleException e)
+			if(y == atacantes.length) 
+			{
+				salida.println("Resultado final: No conquistado");
+			}
+		}
+		catch(PokemonNoDisponibleException e)
 		{
-			e.mostrarE2();
+			if(j==poke.size()) e.mostrarE3();
+			else
+			{
+				e.mostrarE2();
+			}
+		} 
+		catch (GimnasioSinDefensoresException e) 
+		{
+			e.mostrarError();
+			salida.println("Resultado final: Conquistado");
+			gym.setEquipo(equipo);
 		}
 	}
 
+	public boolean comprobarPokeballs()
+	{
+		boolean b = false;
+		for (int i = 0; i < pkb.length; i++) 
+		{
+			if(pkb[i].getIntegridad()>0) b = true;
+		}
+		return b;
+	}
 }

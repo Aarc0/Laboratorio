@@ -23,7 +23,7 @@ public class MasterBall extends Pokeball
 	
 	public boolean captura(Pokemon pok)
 	{
-		System.out.println("Usando la "+this.getClass().getSimpleName()+" probabilida de captura: "+ Math.round(this.percent*100)+"% | Estabilidad: "+this.estabilidad);
+		System.out.println("Usando la "+this.getClass().getSimpleName()+" probabilida de captura: 100% | Estabilidad: "+this.estabilidad);
 		System.out.println("¡Captura exitosa! "+pok.getNombre()+" ahora es tuyo");
 		boolean	b = true;
 		this.setIntegridad(this.integridad-4);

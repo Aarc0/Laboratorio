@@ -1,5 +1,6 @@
 package H5;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Gimnasio 
@@ -13,7 +14,7 @@ public class Gimnasio
 	public void setEquipo(Equipo equipo)
 	{
 		this.equipo = equipo;
-		System.out.println("El gimnasio de "+nombreG+" pertence al equipo "+this.equipo);
+		System.out.println("El gimnasio de "+nombreG+" pertence al equipo "+this.equipo+"\n");
 	}
 	public Equipo getEquipo()
 	{
@@ -49,7 +50,6 @@ public class Gimnasio
 		this.nombreG = nombreG;
 	}
 	
-	
 	public void añadirPokemon(Entrenador E)throws GimnasioPlenoException
 	{
 		//Variable que uso para ir cambiando el numero de pokemon que ha dejado
@@ -72,25 +72,41 @@ public class Gimnasio
 		}
 	}
 	
-	public void combates(Pokemon atacante)
+	public void combates(Pokemon atacante,PrintWriter salida, int combates) throws GimnasioSinDefensoresException
 	{
 		boolean b = true;
 		
 		int i = 0;
 		//Primero necesito buscar al primer pokemon cuya vida sea mayor que 0 en el gimnasio
 		//Para ello voy a usar un bucle for como con el entrenador que buscaba pokeballs con integridad > 0
-		for (i = 0; i < defensores.size(); i++) 
-		{
-			if(defensores.get(i).getSalud()>0) break;
-		}
 		
-		System.out.println("\nCOMBATE DE: "+atacante.getNombre()+" VS "+getDefensores(i).getNombre());
 		try
 		{
+			if(defensores.size()==0) 
+			{
+				throw new GimnasioSinDefensoresException(atacante.getEntrenador());
+			}
+			for (i = 0; i < defensores.size(); i++) 
+			{
+				if(defensores.get(i).getSalud()>0) break;
+			}
+			System.out.println("\nCOMBATE DE: "+atacante.getNombre()+" VS "+getDefensores(i).getNombre());
+			salida.print("Combate "+combates+": "+atacante.getNombre()+" vs ");
+			salida.print(getDefensores(i).getNombre()+" - Ganador: " );
 			do
 			{
 				atacante.atacar(defensores.get(i));
+				if(defensores.get(i).getSalud()<=0) 
+				{
+					salida.println(atacante.getNombre());
+				}
+				
 				defensores.get(i).atacar(atacante);
+				if(atacante.getSalud()<=0) 
+				{
+					salida.println(defensores.get(i).getNombre());
+				}
+
 			}while(b);
 		}
 		catch(PokemonDebilitadoException e)
@@ -101,7 +117,7 @@ public class Gimnasio
 				defensores.get(i).volverAlEntrenador();
 				defensores.remove(i);
 			}
-		}
+		} 
 	}
 	
 	@Override
