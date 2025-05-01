@@ -1,4 +1,5 @@
 package H5;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -241,7 +242,9 @@ public class Main
 	
 	public static void atacarGimnasio(Entrenador atacante, Gimnasio[] gym)
 	{
-		String combates = "C:/Users/andre/git/Laboratorio/FP_T4/log.txt";
+		//String combates = "C:/Users/andre/git/Laboratorio/FP_T4/log.txt";
+		String combates = "log.txt";
+		File fichero = new File(combates);
 		try 
 		{
 			PrintWriter salida = new PrintWriter(new FileWriter(combates));
