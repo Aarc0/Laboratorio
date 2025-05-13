@@ -4,18 +4,18 @@ import java.util.Arrays;
 
 public class Aeropuerto 
 {
-	private String codigo;
+	private String IATA;
 	private String nombre;
 	private Vuelo [] vuelos;
 	
 	///////////////////////////////////////
-	public String getCodigo() 
+	public String getIATA() 
 	{
-		return codigo;
+		return IATA;
 	}
-	public void setCodigo(String codigo) 
+	public void setIATA(String IATA) 
 	{
-		this.codigo = codigo;
+		this.IATA = IATA;
 	}
 	///////////////////////////////////////
 	
@@ -49,6 +49,6 @@ public class Aeropuerto
 	@Override
 	public String toString()
 	{
-		return "El aeropuerto de "+nombre+" cuenta con el código "+codigo+" y los vuelos: "+Arrays.toString(vuelos);
+		return "El aeropuerto de "+nombre+" cuenta con el código "+IATA+" y los vuelos: "+Arrays.toString(vuelos);
 	}
 }
