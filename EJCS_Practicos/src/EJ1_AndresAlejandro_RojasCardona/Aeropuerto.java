@@ -1,12 +1,19 @@
 package EJ1_AndresAlejandro_RojasCardona;
 
-import java.util.Arrays;
 
 public class Aeropuerto 
 {
 	private String IATA;
 	private String nombre;
 	private Vuelo [] vuelos;
+	
+	public Aeropuerto(String IATA, String nombre) 
+	{
+		this.IATA = IATA;
+		this.nombre = nombre;
+		vuelos = new Vuelo[3];
+	}
+	
 	
 	///////////////////////////////////////
 	public String getIATA() 
@@ -35,9 +42,9 @@ public class Aeropuerto
 	{
 		return vuelos;
 	}
-	public void setVuelos(Vuelo[] vuelos) 
+	public void setVuelos(Vuelo vuelos, int i) 
 	{
-		this.vuelos = vuelos;
+		this.vuelos[i] = vuelos;
 	}
 	///////////////////////////////////////
 	
@@ -49,6 +56,14 @@ public class Aeropuerto
 	@Override
 	public String toString()
 	{
-		return "El aeropuerto de "+nombre+" cuenta con el código "+IATA+" y los vuelos: "+Arrays.toString(vuelos);
+		String info = "El aeropuerto de " +nombre+ "cuenta con el código "+IATA+" y los vuelos " ;
+		String vuelo = "";
+		
+		for (int i = 0; i < vuelos.length; i++) 
+		{
+			vuelo = vuelo + vuelos[i].getCodigo() +" "; 
+		}
+		
+		return "El aeropuerto de "+nombre+" cuenta con el código "+IATA+" y los vuelos: "+vuelo;
 	}
 }
