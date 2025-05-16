@@ -1,0 +1,18 @@
+
+[ATAQUE] Axel (Equipo Amarillo) vs Ciudad A
+El entrenador no cuenta con suficientes pokemon para realizar el ataque
+
+[ATAQUE] Misty (Equipo Rojo) vs Ciudad B
+El entrenador no cuenta con suficientes pokemon para realizar el ataque
+
+[ATAQUE] Lucho (Equipo Azul) vs Ciudad C
+El entrenador no cuenta con suficientes pokemon para realizar el ataque
+
+[ATAQUE] Ash (Equipo Rojo) vs Ciudad E
+El entrenador no cuenta con suficientes pokemon para realizar el ataque
+
+[ATAQUE] EspectroPatronus (Equipo Amarillo) vs Ciudad D
+El entrenador no cuenta con suficientes pokemon para realizar el ataque
+
+[ATAQUE] Prueba (Equipo Amarillo) vs Ciudad A
+El entrenador no cuenta con suficientes pokemon para realizar el ataque

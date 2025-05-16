@@ -53,17 +53,45 @@ public class Aeropuerto
 		System.out.println(toString());
 	}
 	
-	@Override
-	public String toString()
+	public void viajes()
 	{
-		String info = "El aeropuerto de " +nombre+ "cuenta con el código "+IATA+" y los vuelos " ;
-		String vuelo = "";
+		String viajes = new String();
+		String [] diferenciador = new String[vuelos.length];
 		
+		//Con vuelos tengo todos los vuelos que lleva ese aeropuerto
 		for (int i = 0; i < vuelos.length; i++) 
 		{
-			vuelo = vuelo + vuelos[i].getCodigo() +" "; 
+			if(vuelos[i]==null);
+			else
+			{
+				//De un vuelo en especifico cojo su ruta la cual es una secuencia de aeropuertos
+				for (int j = 0; j < vuelos[i].getRuta().length; j++) 
+				{
+					if(vuelos[i].getRuta()[j] == null);
+					//Si pasando por la ruta de un vuelo llego al mismo aeropuerto (comparando los codigos IATA) 
+					else if(vuelos[i].getRuta()[j].getIATA().equals(IATA))
+					{
+						//Aquí comparo en qué punto de su ruta se encuentra el aeropuerto que estamos mirando
+						if(j == 0)
+						{
+						diferenciador[i] = "El vuelo "+vuelos[i].getCodigo()+ " tiene su origen en este aeropuerto ("+IATA+") "+nombre;
+						}
+						else if(j == 1)
+						{
+							diferenciador[i] = viajes + "\nEl vuelo "+vuelos[i].getCodigo()+ " tiene su escala en este aeropuerto ("+IATA+") "+nombre;
+						}
+						else if(j == 2)
+						{
+							diferenciador[i] = viajes +"\nEl vuelo "+vuelos[i].getCodigo()+ " tiene su destino en este aeropuerto ("+IATA+") "+nombre;
+						}
+					}
+				}
+			}
 		}
-		
-		return "El aeropuerto de "+nombre+" cuenta con el código "+IATA+" y los vuelos: "+vuelo;
+		for (int i = 0; i < diferenciador.length; i++) 
+		{
+			if(diferenciador[i] == null);
+			else System.out.println(diferenciador[i]);
+		}
 	}
 }

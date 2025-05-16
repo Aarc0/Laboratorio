@@ -24,7 +24,7 @@ public class Main
 
 		Aeropuerto [] ruta = new Aeropuerto[3];
 		int y = 3;
-		
+		String tipo_ruta = new String();
 		
 		//Con esto recorro todos los vuelos 
 		for (int i = 0; i < vuelos.length; i++) 
@@ -33,7 +33,7 @@ public class Main
 			if(i == 2)
 			{
 				y = 2;
-				ruta[2]=null;
+				ruta[1]=null;
 			}
 			
 			System.out.println("Para el vuelo "+vuelos[i].getCodigo()+" por favor indique el código IATA de los aeropuertos por los que pasa SEPARADO POR GUIONES \"-\": ");
@@ -46,6 +46,19 @@ public class Main
 				//Si coincide el código IATA que se especifico con el código del aeropuerto actual tenemos que establecerlo como un punto de la ruta
 				if(C_separado[x].equals(aeropuertos[j].getIATA()))
 				{
+					if(x == 0)
+					{
+						tipo_ruta = "Origen: "+"("+aeropuertos[j].getIATA()+") "+aeropuertos[j].getNombre();
+					}
+					else if(x == 1 && i != 2)
+					{
+						tipo_ruta = tipo_ruta + "\nEscala: "+"("+aeropuertos[j].getIATA()+") "+aeropuertos[j].getNombre();
+					}
+					else if(x == 2 || i == 2)
+					{
+						if(i==2) x = 2;
+						tipo_ruta = tipo_ruta+"\nDestino: "+"("+aeropuertos[j].getIATA()+") "+aeropuertos[j].getNombre();
+					}
 					//Ya no solo eso sino que también tenemos que agregar ese vuelo al registro de vuelos que pasan por ese aeropuerto
 					//Uso x pq x cambia siempre que entra y se establece un vuelo, esto para que queden en orden
 					aeropuertos[j].setVuelos(vuelos[i], x);
@@ -57,6 +70,7 @@ public class Main
 				}
 			}
 			vuelos[i].setRuta(ruta);
+			vuelos[i].setRuta_t(tipo_ruta);
 		}
 		
 		do
@@ -86,7 +100,8 @@ public class Main
 				{
 					if(codigo.equals(aeropuertos[i].getIATA()))
 					{
-						System.out.println(aeropuertos[i].toString());
+						aeropuertos[i].viajes();
+						break;
 					}
 				}
 				break;
@@ -100,9 +115,6 @@ public class Main
 			}
 			
 		}while(b);
-		
 		n.close();
-		
-		
 	}
 }
