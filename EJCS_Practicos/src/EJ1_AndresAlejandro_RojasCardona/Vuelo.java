@@ -1,7 +1,5 @@
 package EJ1_AndresAlejandro_RojasCardona;
 
-import java.util.Arrays;
-
 public class Vuelo 
 {
 	private String codigo, ruta_t;

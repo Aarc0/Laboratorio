@@ -9,18 +9,22 @@ public class Main
 		Scanner n = new Scanner(System.in);
 		boolean b = true;
 		Vuelo[] vuelos = new Vuelo[3];
-		vuelos[0] = new Vuelo("IB234");
-		vuelos[1] = new Vuelo("AA567");
-		vuelos[2] = new Vuelo("AF901");
+		
+		for (int i = 0; i < vuelos.length; i++) 
+		{
+			System.out.println("Por favor ingrese el código del vuelo numero "+(i+1)+" en formato: XX000");
+			vuelos[i] = new Vuelo(n.next());
+		}
 		
 		Aeropuerto [] aeropuertos = new Aeropuerto[7];
-		aeropuertos[0] = new Aeropuerto("MAD","Madrid");
-		aeropuertos[1] = new Aeropuerto("CDG","Paris");
-		aeropuertos[2] = new Aeropuerto("JFK","Nueva York");
-		aeropuertos[3] = new Aeropuerto("LAX","Los Angeles");
-		aeropuertos[4] = new Aeropuerto("ORD","Chicago");
-		aeropuertos[5] = new Aeropuerto("MIA","Miami");
-		aeropuertos[6] = new Aeropuerto("DXB","Dubai");
+		for (int i = 0; i < aeropuertos.length; i++) 
+		{
+			System.out.println("Por favor ingrese el código IATA del aeropuerto numero "+(i+1));
+			String iata = n.next();
+			System.out.println("Por favor ingrese la ciudad destino en la que está ubicada el aeropuerto, EJ: \"Madrid\"");
+			String ciudad = n.next();
+			aeropuertos[i] = new Aeropuerto(iata,ciudad);
+		}
 
 		Aeropuerto [] ruta = new Aeropuerto[3];
 		int y = 3;
@@ -93,18 +97,18 @@ public class Main
 					}
 					break;
 					
-			case 2:
-				System.out.println("Por favor introduce el código IATA del aeropuerto del que quieres saber información: ");
-				codigo = n.next();
-				for (int i = 0; i < aeropuertos.length; i++) 
-				{
-					if(codigo.equals(aeropuertos[i].getIATA()))
+				case 2:
+					System.out.println("Por favor introduce el código IATA del aeropuerto del que quieres saber información: ");
+					codigo = n.next();
+					for (int i = 0; i < aeropuertos.length; i++) 
 					{
-						aeropuertos[i].viajes();
-						break;
+						if(codigo.equals(aeropuertos[i].getIATA()))
+						{
+							aeropuertos[i].viajes();
+							break;
+						}
 					}
-				}
-				break;
+					break;
 			}
 			
 			System.out.println("Quieres más información sobre vuelos o aeropuertos? Sí(S)/No(N)");
