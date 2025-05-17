@@ -1,4 +1,4 @@
-El radio del cilindro es: 20.0
-La altura del cilindro es: 20.0
-El volumen del cilindro es: 25132.741228718347
-La superficie total del cilindro es: 5026.548245743669
+El radio del cilindro es: 5.0
+La altura del cilindro es: 5.0
+El volumen del cilindro es: 392.69908169872417
+La superficie total del cilindro es: 314.1592653589793
