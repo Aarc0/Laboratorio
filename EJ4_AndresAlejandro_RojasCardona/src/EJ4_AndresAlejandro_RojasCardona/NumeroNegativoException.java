@@ -23,7 +23,7 @@ public class NumeroNegativoException extends Exception
 		{
 			corregirCilindro();
 		}
-		else if(circulo != null)
+		if(circulo != null)
 		{
 			corregirCirculo();
 		}

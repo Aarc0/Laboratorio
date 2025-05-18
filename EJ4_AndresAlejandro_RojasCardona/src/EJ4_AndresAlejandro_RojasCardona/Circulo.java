@@ -7,8 +7,21 @@ public class Circulo
 	Circulo(double radio)
 	{
 		this.radio = radio;
+		verificacion();
 	}
 
+	public void verificacion()
+	{
+		try
+		{
+			if(radio<0)throw new NumeroNegativoException(this);
+		}
+		catch(NumeroNegativoException e)
+		{
+			e.mostrarError();
+		}
+	}
+	
 	public double getRadio() 
 	{
 		return radio;
