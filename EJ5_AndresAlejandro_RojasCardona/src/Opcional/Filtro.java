@@ -18,22 +18,21 @@ public class Filtro extends JFrame
 	
 	Filtro(int edad, String nombre)
 	{
-		setTitle("Ventana de filtrado");
+		setTitle("Saludo");
 		setBounds(650, 300,  600,      450);
 		setResizable(false);
-		
 		//Con esto cargo la imagen
 		if(edad < 25)
 		{
-			icono = new ImageIcon("C:/Users/andre/Downloads/iloveimg-converted/flor.jpg");
+			icono = new ImageIcon("C:/Users/andre/git/Laboratorio/EJ5_AndresAlejandro_RojasCardona/src/iloveimg-converted/flor.jpg");
 		}
 		else if(edad >= 25 && edad <= 70)
 		{
-			icono = new ImageIcon("C:/Users/andre/Downloads/iloveimg-converted/sol_feliz.jpg");
+			icono = new ImageIcon("C:/Users/andre/git/Laboratorio/EJ5_AndresAlejandro_RojasCardona/src/iloveimg-converted/sol_feliz.jpg");
 		}
 		else
 		{
-			icono = new ImageIcon("C:/Users/andre/Downloads/iloveimg-converted/hoja_seria.jpg");
+			icono = new ImageIcon("C:/Users/andre/git/Laboratorio/EJ5_AndresAlejandro_RojasCardona/src/iloveimg-converted/hoja_seria.jpg");
 		}
 		
 		//Cambio su tamaño
@@ -66,11 +65,6 @@ public class Filtro extends JFrame
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		
-		
-		 
-		
-		
 		
 		
 		

@@ -2,7 +2,10 @@ package Opcional;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,8 +32,6 @@ public class Ventana1 extends JFrame implements ActionListener
 	
 	Ventana1()
 	{
-		
-		
 		//Título de la ventana
 		setTitle("Identificador usuario");
 		
@@ -41,22 +42,32 @@ public class Ventana1 extends JFrame implements ActionListener
 		//Este mismo ajuste se puede usar en los elementos de dentro del panel
 		//Para organizarlos tal y como quiera
 		
-		//Cierre de ventana predeterminado
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		//Para que no se pueda cambiar el tamaño, vaya para que el que pongo en el .setSize no se cambie
 		setResizable(false);
 		
 		l1 = new JLabel("Escribe tu nombre");
-		
+		l1.setAlignmentX(CENTER_ALIGNMENT);
+		l1.setFont(new Font("Georgia",Font.BOLD,14));
 		
 		l2 = new JLabel("¿Cuantos años tienes?");
+		l2.setAlignmentX(CENTER_ALIGNMENT);
+		l2.setFont(new Font("Georgia",Font.BOLD,14));
 		
-		nombre = new JTextField(10);
+		nombre = new JTextField();
+		nombre.setMaximumSize(new Dimension(150, 25));
+		nombre.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		
+		
 		edad = new JTextField(10);
+		edad.setMaximumSize(new Dimension(150, 25));
+		edad.setAlignmentX(CENTER_ALIGNMENT);
+
 		
 		boton = new JButton("Aceptar");
+		boton.setAlignmentX(Component.CENTER_ALIGNMENT);
 		boton.setBackground(Color.GREEN);
+		boton.setFont(new Font("Georgia",Font.BOLD,14));
 		
 		panel = new JPanel();
 		//Esto para establecer que vaya en modo de pila
@@ -66,23 +77,25 @@ public class Ventana1 extends JFrame implements ActionListener
 		panel.add(l2);
 		panel.add(edad);
 		panel.add(boton);
-		//Con esto hago que los componentes se pongan en el centro
 		panel.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+		panel.setBackground(Color.cyan);
+		//Con esto hago que los componentes se pongan en el centro
+		
 
 		boton.addActionListener(this);
 		
-		setLayout(new FlowLayout());
 		add(panel,BorderLayout.CENTER);
+		
+		//Cierre de ventana predeterminado
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);	
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		if(e.getSource().equals(boton))
-		{
-			Filtro v2 = new Filtro(Integer.parseInt(edad.getText()),nombre.getText());
-			setVisible(false);
-		}
+		//Solo un objeto tiene asociado el listener por lo que no hace falta conseguir la fuente del elemento
+		Filtro v2 = new Filtro(Integer.parseInt(edad.getText()),nombre.getText());
+		setVisible(false);
 	}
 }
