@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/iloveimg-converted</name>
-			<type>2</type>
-			<location>C:/Users/andre/Downloads/iloveimg-converted</location>
-		</link>
-	</linkedResources>
 </projectDescription>
