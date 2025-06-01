@@ -35,6 +35,5 @@ public class MasterBall extends Pokeball
 	public String toString() 
 	{
 		return "MasterBall probabilidad de captura: "+(percent*100)+"% | estabilidad: "+estabilidad;
-	}
-	
+	}	
 }
